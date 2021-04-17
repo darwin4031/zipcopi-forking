@@ -1,0 +1,51 @@
+@import "variables";
+
+// To get previous breakpoint key (ex: md, xl, lg)
+@function breakpoint-prev($key, $breakpoints-array) {
+    $breakpoint-names: map-keys($breakpoints-array);
+    $index: index($breakpoint-names, $key);
+    $prev: $index - 1;
+
+    @if not $index {
+        @error "breakpoint `#{$key}` not found in `#{$breakpoints-array}`";
+    }
+
+    @return if(
+        $index < length($breakpoints-array) and $prev > -1,
+        nth($breakpoint-names, $prev),
+        null
+    );
+}
+
+// To get next breakpoint key (ex: md, xl, lg)
+@function breakpoint-next($key, $breakpoints-array) {
+    $breakpoint-names: map-keys($breakpoints-array);
+    $index: index($breakpoint-names, $key);
+
+    @if not $index {
+        @error "breakpoint `#{$key}` not found in `#{$breakpoints-array}`";
+    }
+
+    @return if(
+        $index < length($breakpoints-array),
+        nth($breakpoint-names, $index + 1),
+        null
+    );
+}
+
+// Width based breakpoint-down
+@mixin breakpoint-down($key) {
+    $next: breakpoint-next($key, $breakpoints);
+    $max: map-get($breakpoints, $next) - 0.02;
+    @media screen and (max-width: $max) {
+        @content;
+    }
+}
+
+// Width based breakpoint-up
+@mixin breakpoint-up($key) {
+    $prev: breakpoint-prev($key, $breakpoints);
+    @media screen and (min-width: #{map-get($breakpoints, $key)}) {
+        @content;
+    }
+}

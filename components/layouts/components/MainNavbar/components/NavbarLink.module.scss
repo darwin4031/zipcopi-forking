@@ -1,0 +1,26 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Link {
+    margin: 0 16px;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: $transition-primary;
+
+    @include breakpoint-down(md) {
+        margin: 0 8px;
+    }
+
+    &:nth-child(1) {
+        margin-left: 0;
+    }
+
+    &:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}

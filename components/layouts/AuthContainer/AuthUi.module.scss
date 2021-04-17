@@ -1,0 +1,179 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.AuthUi {
+    $local-padding-y: $navbar-height + 80px;
+    position: relative;
+    padding-top: $local-padding-y;
+    padding-bottom: $local-padding-y;
+    min-height: calc(100vh);
+    overflow-x: hidden;
+    background-color: $color-primary;
+}
+
+.AuthUiPattern {
+    position: absolute;
+    z-index: 0;
+    bottom: 40px;
+    left: 40px;
+    height: 280px;
+}
+
+.AuthUiWrapper {
+    position: relative;
+    z-index: 1;
+    width: 600px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.AuthUiBox {
+    padding: 24px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: $color-light;
+
+    @include breakpoint-down(xs) {
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+.AuthUiHeader {
+    position: relative;
+}
+
+.AuthUiTitle {
+    position: relative;
+    z-index: 1;
+    font-family: $fontfamily-bold;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.AuthUiIllustration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 200px;
+    z-index: 0;
+    transform: translate(24px, -24px);
+
+    @include breakpoint-down(xs) {
+        height: 150px;
+    }
+
+    @media screen and (max-width: 450px) {
+        height: 100px;
+    }
+}
+
+.AuthUiForm {
+    position: relative;
+    z-index: 1;
+}
+
+.AuthUiFormFields {
+    display: block;
+    margin-top: 40px;
+}
+
+.field {
+    margin-top: 24px;
+    overflow-x: hidden;
+}
+
+.fieldSplit {
+    $local-gutter: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: (0 - $local-gutter);
+
+    @include breakpoint-down(sm) {
+        margin: 0;
+    }
+
+    & > * {
+        width: 50%;
+        padding: $local-gutter;
+
+        @include breakpoint-down(sm) {
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+
+.checkbox {
+    margin-top: 24px;
+    font-size: 12px;
+}
+
+.submitWrapper {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.submit {
+    width: 340px;
+    height: 56px;
+    max-width: 100%;
+}
+
+.AuthUiFieldsAlternate {
+    font-size: 14px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: $color-text-lighter;
+}
+
+.link {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.AuthUiOptions {
+    width: calc(100% - 100px);
+    margin: auto;
+    padding: 24px 8px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba($color-black, 0.2);
+    color: $color-text-light;
+    background-color: $color-primary;
+
+    @include breakpoint-down(xs) {
+        width: 100%;
+    }
+
+    & > div > div:nth-child(1) > span {
+        font-weight: 600;
+        color: darken($color-text-light, 5);
+    }
+}
+
+.AuthUiOptionsIcon {
+    height: 16px;
+    margin-right: 4px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: -4px;
+
+    & > * {
+        padding: 4px;
+    }
+}
+
+.AuthUiAlternate {
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    font-size: 12px;
+    border: 1px solid $color-light;
+    color: $color-text-light;
+}

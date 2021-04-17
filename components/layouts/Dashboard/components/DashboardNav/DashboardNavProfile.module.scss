@@ -1,0 +1,51 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    display: block;
+    padding: 8px 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+    transition: $transition-primary;
+    border-radius: 10px;
+
+    &:hover,
+    &:focus {
+        background-color: rgba($color-light, 0.1);
+    }
+}
+
+.Profile {
+    // margin: 24px 32px;
+    display: flex;
+    align-items: center;
+}
+
+.ProfileInfo {
+    width: 1%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    margin-left: 16px;
+    color: $color-light;
+}
+
+.ProfileName {
+    font-weight: 700;
+}
+
+.ProfileEmail {
+    white-space: wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+    font-size: 12px;
+}
+
+.ProfileAvatar img {
+    height: 48px;
+    width: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+}

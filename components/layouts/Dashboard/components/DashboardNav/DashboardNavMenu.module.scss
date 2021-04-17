@@ -1,0 +1,76 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Menu {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    transition: $transition-primary;
+    font: inherit;
+    outline: none;
+    border: none;
+    border-radius: 4px 16px 4px 16px;
+    color: $color-light;
+    background-color: transparent;
+
+    &:not(:nth-child(1)) {
+        margin-top: 8px;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: rgba($color-light, 0.1);
+    }
+
+    &.isActive {
+        font-weight: 700;
+        color: $color-primary;
+        background-color: $color-light;
+
+        .MenuNotifications {
+            color: $color-light;
+            background-color: $color-primary;
+        }
+    }
+}
+
+.MenuWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.MenuIcon {
+    width: 24px;
+    margin-right: 24px;
+}
+
+.MenuSvg {
+    height: 24px;
+    width: 24px;
+    display: block;
+
+    * {
+        fill: currentColor;
+    }
+}
+
+.MenuNotifications {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50px;
+    color: $color-primary;
+    background-color: $color-light;
+}

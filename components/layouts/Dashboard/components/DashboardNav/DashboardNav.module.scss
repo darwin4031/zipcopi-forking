@@ -1,0 +1,100 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.DashboardNav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: $DashboardNav-width;
+    max-width: calc(100vw - 24px);
+    z-index: $zindex-DashboardNav;
+    transition: $transition-primary;
+
+    @include breakpoint-down(sm) {
+        width: auto;
+        max-width: unset;
+        right: 0;
+        opacity: 0;
+        pointer-events: none;
+        background-color: rgba($color-black, 0.5);
+
+        &.isOpen {
+            opacity: 1;
+            pointer-events: inherit;
+
+            .DashboardNavBox {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+.DashboardNavBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: calc(100vw - 24px);
+    transition: $transition-primary;
+    border-end-end-radius: 24px;
+    background-color: $color-primary;
+
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    @include breakpoint-down(sm) {
+        width: $DashboardNav-width;
+        transform: translateX(-110%);
+    }
+}
+
+.DashboardNavHeader,
+.DashboardNavFooter {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.DashboardNavBody {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 300px;
+}
+
+.DashboardNavBrandWrapper {
+    height: $navbar-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-light;
+}
+
+.DashboardNav .DashboardNavBrand {
+    color: $color-primary;
+}
+
+.DashboardNavMenuWrapper {
+    margin-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.DashboardNavFooter {
+    position: relative;
+    overflow: hidden;
+}
+
+.DashboardNavPattern {
+    position: absolute;
+    width: 112%;
+    z-index: 0;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-52%);
+}
+
+.jobGroup > * {
+    margin-top: 8px;
+}

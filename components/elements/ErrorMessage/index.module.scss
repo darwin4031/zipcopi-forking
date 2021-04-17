@@ -1,0 +1,8 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.error {
+    margin-top: 8px;
+    font-size: 12px;
+    color: $color-error;
+}

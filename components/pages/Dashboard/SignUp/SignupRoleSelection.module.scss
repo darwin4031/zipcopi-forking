@@ -1,0 +1,60 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    font-size: 24px;
+
+    @include breakpoint-down(xs) {
+        font-size: 18px;
+    }
+
+    & > * {
+        margin-left: 16px;
+
+        @include breakpoint-down(xs) {
+            margin-left: 8px;
+        }
+
+        &:nth-child(1) {
+            margin-left: 0;
+        }
+    }
+}
+
+.list {
+    & > * {
+        margin-left: 16px;
+
+        &:nth-child(1) {
+            margin-left: 0;
+        }
+    }
+}
+
+.item {
+    position: relative;
+    padding: 8px 0;
+    cursor: pointer;
+    font: inherit;
+    color: $color-text-lighter;
+    border: none;
+    background-color: transparent;
+
+    &.isActive {
+        font-family: $fontfamily-bold;
+        color: $color-primary;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: $color-primary;
+        }
+    }
+}

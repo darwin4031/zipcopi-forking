@@ -1,0 +1,57 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.empty {
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 700;
+  color: lighten($color-text-dark, 10);
+}
+
+.empty.empty {
+    width: 100%;
+}
+
+.emptyIcon {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: $color-primary;
+  border-radius: 50%;
+  background-color: rgba($color-primary, 0.1);
+
+  svg {
+    height: 24px;
+
+    path {
+      fill: currentColor;
+    }
+  }
+}
+
+.emptyText {
+  line-height: 1.4;
+}
+
+.emptyIcon.emptyIcon {
+    height: unset;
+    width: unset;
+    background-color: transparent;
+
+    svg {
+        height: 60px;
+    }
+}
+
+.emptyAction {
+    margin-top: 16px;
+}

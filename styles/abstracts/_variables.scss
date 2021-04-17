@@ -1,0 +1,66 @@
+$color-black: #000;
+$color-primary: #49a49c;
+$color-primary-1: #92b0ac;
+$color-primary-darker: #426397;
+$color-blue: #6887c1;
+$color-blue-light: #7694cd;
+$color-light: #fff;
+$color-error: #eb5757;
+$color-success: #27ae60;
+$color-warning: #ffbf00;
+$color-text-light: #fff;
+$color-text-lighter: #4f4f4f;
+$color-text-lightest: #6e6f71;
+$color-text-placeholder: #cecece;
+$color-text-dark: #182135;
+$color-text-FilterSortOption: #606060;
+$color-logo-gray: #394c4a;
+$color-bg-field: #efefef;
+$color-bg-FilterSelectionItem: #f2f2f2;
+$color-bg-FilterCloseButton: #e0e0e0;
+$color-bg-OrderNewPremium: #f6f7fb;
+$color-border-adminBox: #ebeff2;
+
+$color-facebook: #53689a;
+$color-linkedin: #3475a4;
+
+// Font family
+// ----------------------------------------------------------------------------
+$fontfamily-bold: "cera pro bold", sans-serif;
+
+// Z-index
+// ----------------------------------------------------------------------------
+$zindex-Navbar: 2;
+$zindex-DashboardSearchbar: 2;
+$zindex-BottomNavbar: 2;
+$zindex-NavbarSide: 3;
+$zindex-DashboardNav: 3;
+$zindex-Filter: 4;
+$zindex-Popup: 9;
+$zindex-wholeLoading: 10;
+
+// Others
+// ----------------------------------------------------------------------------
+$transition-primary: 275ms cubic-bezier(0.4, 0, 0.2, 1);
+$navbar-height: 76px;
+$BottomNavbar-height: 72px;
+$DashboardNav-width: 300px;
+
+// Breakpoints
+// ----------------------------------------------------------------------------
+$b-xs: 0;
+$b-sm: 640px;
+$b-md: 768px;
+$b-lg: 1024px;
+$b-xl: 1280px;
+$b-2xl: 1536px;
+$gutter: 16px;
+
+$breakpoints: (
+    xs: $b-xs,
+    sm: $b-sm,
+    md: $b-md,
+    lg: $b-lg,
+    xl: $b-xl,
+    2xl: $b-2xl,
+) !default;

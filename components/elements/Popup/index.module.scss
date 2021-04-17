@@ -1,0 +1,54 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: $zindex-Popup;
+    background-color: rgba($color-black, 0.5);
+
+    // Animation
+    transition: $transition-primary;
+    transition-property: opacity;
+    pointer-events: none;
+    opacity: 0;
+
+    &.isOpen {
+        pointer-events: inherit;
+        opacity: 1;
+    }
+}
+
+.flex {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.scroller {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    overflow: auto;
+    margin: auto;
+}
+
+.inner {
+    width: 100%;
+    padding: 46px 0;
+    margin: auto;
+}
+
+.box {
+    position: relative;
+    width: 920px;
+    max-width: calc(100% - 40px);
+    padding: 28px 40px;
+    margin: auto;
+    border-radius: 10px;
+    background: $color-light;
+}

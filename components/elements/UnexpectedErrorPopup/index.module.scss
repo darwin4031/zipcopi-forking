@@ -1,0 +1,17 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.popup {
+    &__box {
+      width: 400px;
+      padding: 24px;
+    }
+
+    &__content {
+        margin-top: 16px;
+    }
+
+    &__action {
+        margin-top: 16px;
+    }
+}

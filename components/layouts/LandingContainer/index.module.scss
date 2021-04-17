@@ -1,0 +1,20 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.homepage {
+  position: relative;
+  z-index: 1;
+  padding-top: $navbar-height;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.navbar {
+  z-index: 2;
+  box-shadow: 0 1px 8px 0 rgba($color-black, 0.1);
+}

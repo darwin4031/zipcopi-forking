@@ -1,0 +1,44 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.signinOtherActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.signinFacebook {
+  background-color: $color-facebook;
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-facebook, 6);
+  }
+}
+
+.signinLinkedin {
+  background-color: $color-linkedin;
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-linkedin, 6);
+  }
+}
+
+.popupBox {
+  composes: popupBox from "../SignUp/index.module.scss";
+}
+
+.popupContent {
+  composes: popupContent from "../SignUp/index.module.scss";
+}
+
+.popupLogin {
+  composes: popupLogin from "../SignUp/index.module.scss";
+}
+
+.field {
+  margin-top: 24px;
+  overflow-x: hidden;
+}

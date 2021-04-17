@@ -1,0 +1,62 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.create {
+    margin: 80px 0;
+
+    &__box {
+        position: relative;
+        width: 750px;
+        max-width: 100%;
+        margin: auto;
+        padding: 40px 24px;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 16px;
+        color: $color-light;
+        background-color: $color-primary;
+        background-image: url("/img/repeatable-dots-pattern-tallest.png");
+        background-repeat: repeat;
+        background-position: center;
+        background-size: 24px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            height: 100%;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.2);
+            background-image: radial-gradient(
+                $color-primary 40%,
+                rgba($color-primary, 0.6) 80%,
+                rgba($color-primary, 0)
+            );
+        }
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__suptitle {
+        text-transform: uppercase;
+    }
+
+    &__title {
+        margin-top: 8px;
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    &__action {
+        margin-top: 24px;
+    }
+
+    &__actionBtn {
+        font-weight: 600;
+    }
+}

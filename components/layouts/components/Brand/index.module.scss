@@ -1,0 +1,24 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Brand {
+    display: block;
+}
+
+.BrandImage {
+    display: block;
+    height: 36px;
+    color: $color-logo-gray;
+
+    @include breakpoint-down(sm) {
+        color: $color-primary;
+    }
+
+    @include breakpoint-down(xs) {
+        height: 32px;
+    }
+
+    & > * {
+        fill: currentColor;
+    }
+}

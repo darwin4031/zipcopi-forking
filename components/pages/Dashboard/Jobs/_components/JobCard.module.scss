@@ -1,0 +1,91 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.container {
+  display: flex;
+  height: 100%;
+  padding: 12px;
+  transition: $transition-primary;
+  box-shadow: 0 4px 8px 0 rgba($color-black, 0.07);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background-color: $color-light;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    border-color: $color-primary;
+  }
+}
+
+.icon {}
+
+.itemSvg {
+  display: block;
+  height: 56px;
+}
+
+.body {
+  margin-left: 24px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.brief {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: $color-text-lightest;
+}
+
+.itemGroupWrapper {
+  $local-gutter: 8px;
+  margin: (0 - $local-gutter);
+  margin-top: (10px - $local-gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  & > * {
+    margin: $local-gutter;
+  }
+}
+
+.itemGroup {
+  display: flex;
+  align-items: center;
+}
+
+.itemGroupIcon {
+  margin-right: 4px;
+}
+
+.itemGroupSvg {
+  height: 16px;
+  display: block;
+}
+
+.itemGroupText {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.tagsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.tag {
+  margin: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  color: $color-text-FilterSortOption;
+  background-color: $color-bg-FilterSelectionItem;
+  text-transform: capitalize;
+}

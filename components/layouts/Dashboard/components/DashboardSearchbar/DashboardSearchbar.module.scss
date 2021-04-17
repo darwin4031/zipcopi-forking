@@ -1,0 +1,148 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Searchbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $navbar-height;
+    z-index: $zindex-DashboardSearchbar;
+    background-color: $color-light;
+
+    display: flex;
+    align-items: center;
+
+    @include breakpoint-down(xs) {
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            background-color: rgba($color-primary, 0.3);
+        }
+    }
+
+    &.withMessageBackBtn {
+        .SearchbarBackBtn {
+            @include breakpoint-down(xs) {
+                display: block;
+                margin-left: 16px;
+            }
+
+            svg {
+                height: 24px;
+                width: 24px;
+            }
+        }
+
+        // Act for a bumper only
+        .SearchbarWrapper {
+            @include breakpoint-down(xs) {
+                width: (40px + 16px);
+            }
+        }
+    }
+}
+
+.SearchbarBump {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: $DashboardNav-width;
+
+    @include breakpoint-down(sm) {
+        width: auto;
+    }
+}
+
+.SearchbarBrand {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: none;
+
+    @include breakpoint-down(xs) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.SearchbarWrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint-down(xs) {
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: flex-end;
+    }
+}
+
+.SearchbarSearch {
+    height: $navbar-height;
+    padding-right: 16px;
+
+    @include breakpoint-down(xs) {
+        display: none;
+    }
+}
+
+.SearchbarAction {
+    height: $navbar-height;
+    display: flex;
+    align-items: center;
+    padding-right: 32px;
+
+    @include breakpoint-down(xs) {
+        &:not(.withFilter) {
+            padding-right: 0;
+        }
+    }
+}
+
+.Searchbar .SearchbarButton {
+    height: 48px;
+    width: 48px;
+
+    &:not(:nth-child(1)) {
+        margin-left: 16px;
+    }
+
+    &:nth-last-child(1) {
+        background-color: $color-logo-gray;
+
+        @include breakpoint-down(xs) {
+            display: none;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: lighten($color-logo-gray, 10);
+        }
+    }
+}
+
+.SearchbarHamburger {
+    display: none;
+    color: $color-primary;
+
+    @include breakpoint-down(sm) {
+        display: block;
+        margin-left: 24px;
+    }
+
+    @include breakpoint-down(xs) {
+        display: none;
+    }
+}
+
+.SearchbarBackBtn {
+    display: none;
+}

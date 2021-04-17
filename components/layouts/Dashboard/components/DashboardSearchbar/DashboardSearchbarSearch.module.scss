@@ -1,0 +1,58 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+$search-icon-height: 20px;
+$search-icon-space: 16px;
+
+.Search {
+    height: 100%;
+    padding-left: 32px;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint-down(md) {
+        padding-left: 16px;
+    }
+}
+
+.SearchWrapper {
+    position: relative;
+}
+
+.SearchIcon {
+    position: absolute;
+    height: $search-icon-height;
+    top: 50%;
+    left: $search-icon-space;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.SearchInput {
+    display: block;
+    width: 380px;
+    padding: 14px 24px;
+    padding-left: (12px + $search-icon-height + $search-icon-space);
+    font: inherit;
+    font-size: 14px;
+    transition: $transition-primary;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: $color-bg-field;
+
+    @include breakpoint-down(md) {
+        width: 300px;
+    }
+
+    &:hover {
+        border-color: rgba($color-primary, 0.6);
+    }
+
+    &:focus {
+        border-color: $color-primary;
+    }
+
+    &::placeholder {
+        color: $color-text-lighter;
+    }
+}

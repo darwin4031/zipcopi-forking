@@ -1,0 +1,48 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.confirmationBox.confirmationBox {
+    width: 450px;
+    padding: 48px 16px;
+    padding-top: 24px;
+}
+
+.confirmationIcon {
+    margin-bottom: 24px;
+
+    svg {
+        display: block;
+        margin: auto;
+        height: 80px;
+    }
+}
+
+.confirmationTitle {
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+    color: lighten($color-text-dark, 10);
+}
+
+.confirmationContent {
+    margin-top: 24px;
+    font-size: 14px;
+    text-align: center;
+    color: lighten($color-text-dark, 10);
+}
+
+.confirmationActions {
+    $local-gutter: 8px;
+    display: flex;
+    margin: (0 - $local-gutter);
+    margin-top: (24px - $local-gutter);
+
+    & > * {
+        padding: $local-gutter;
+        width: 50%;
+    }
+}
+
+.confirmationAction {
+    width: 100%;
+}

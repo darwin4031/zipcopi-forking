@@ -1,0 +1,32 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.container {
+  overflow: hidden;
+}
+
+.wrapper {
+  padding: 50px 30px;
+}
+
+
+.body {
+  $local-gutter: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: (0 - $local-gutter);
+  margin-top: (16px - $local-gutter);
+
+  & > * {
+    padding: $local-gutter;
+    width: (1 / 3 * 100%);
+
+    @include breakpoint-down(lg) {
+      width: 50%;
+    }
+
+    @include breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+}

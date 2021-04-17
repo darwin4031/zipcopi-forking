@@ -1,0 +1,70 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-BottomNavbar;
+    padding: 16px;
+    background-color: $color-light;
+    display: none;
+
+    @include breakpoint-down(xs) {
+        display: block;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        pointer-events: none;
+        background-color: rgba($color-primary, 0.3);
+    }
+}
+
+.wrapper {
+    $local-gutter: 4px;
+    display: flex;
+    align-items: center;
+    margin: (0 - $local-gutter);
+
+    & > * {
+        width: 25%;
+        padding: $local-gutter;
+    }
+}
+
+.root .item {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-primary;
+    border-radius: 50px;
+    color: $color-text-lighter;
+
+    &:hover,
+    &:focus {
+        background-color: rgba($color-primary, 0.2);
+    }
+
+    svg {
+        display: block;
+        height: 24px;
+
+        path {
+            fill: currentColor;
+        }
+    }
+
+    &.isActive {
+        color: $color-text-light;
+        background-color: $color-primary;
+    }
+}

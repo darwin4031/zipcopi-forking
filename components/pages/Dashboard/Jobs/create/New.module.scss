@@ -1,0 +1,85 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    padding: 30px;
+
+    @include breakpoint-down(xs) {
+        padding: 0;
+    }
+}
+
+.field {
+    margin-top: 24px;
+}
+
+.box {
+    // margin: 30px;
+    padding: 40px 24px;
+    border-radius: 10px;
+    background-color: $color-light;
+
+    @include breakpoint-down(xs) {
+        border-radius: 0;
+    }
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.flex {
+    $local-gutter: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: (0 - $local-gutter);
+
+    & > * {
+        width: 100%;
+        padding: $local-gutter;
+
+        @include breakpoint-up(lg) {
+            width: 50%;
+        }
+    }
+}
+
+.col {
+}
+
+.root .briefTitle {
+    display: block;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.upload {
+    margin-top: 8px;
+}
+
+.actions {
+    margin-top: 32px;
+}
+
+.continueBtn,
+.laterBtn {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.continueBtn {
+    height: 56px;
+    width: 520px;
+    max-width: 100%;
+}
+
+.laterBtn {
+  padding: 8px 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: $color-primary;
+}

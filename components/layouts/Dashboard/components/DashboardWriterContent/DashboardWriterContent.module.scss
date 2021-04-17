@@ -1,0 +1,94 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.flex {
+    $local-gutter: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: (24px - $local-gutter);
+
+    & > * {
+        padding: $local-gutter;
+    }
+}
+
+.item {
+    width: 100%;
+
+    @include breakpoint-up(md) {
+        width: 100%;
+
+        &.completions,
+        &.tips {
+            width: 100%;
+        }
+    }
+
+    @include breakpoint-up(lg) {
+        width: 65%;
+
+        &.completions,
+        &.tips {
+            width: 35%;
+        }
+    }
+
+    @include breakpoint-up(2xl) {
+        width: 75%;
+
+        &.completions,
+        &.tips {
+            width: 25%;
+        }
+    }
+}
+
+.title {
+    margin: 24px 0;
+    font-size: 22px;
+}
+
+.recomendationsBody {
+    $local-gutter: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: (0 - $local-gutter);
+
+    & > * {
+        padding: $local-gutter;
+        width: 100%;
+
+        @include breakpoint-up(xl) {
+            width: 50%;
+        }
+    }
+}
+
+.projectsItemsList.projectsItemsList {
+    margin: -8px;
+    // margin-top: 0;
+}
+
+.projectsWrapper {
+    padding: 0;
+}
+
+.projectsItemWrapper.projectsItemWrapper {
+    padding: 8px;
+    width: 100%;
+
+    @include breakpoint-up(xl) {
+        width: 50%;
+    }
+
+    @include breakpoint-up(2xl) {
+        width: (100% / 3);
+    }
+}
+
+.empty {
+    margin-top: 8px;
+    font-size: 14px;
+    font-style: italic;
+    color: $color-text-lightest;
+}

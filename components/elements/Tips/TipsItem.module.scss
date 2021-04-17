@@ -1,0 +1,47 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+}
+
+.box {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba($color-black, 0.07);
+    background-color: $color-light;
+    display: flex;
+    margin: 16px;
+}
+
+.icon {
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    svg {
+        display: block;
+        height: 32px;
+
+        path {
+            fill: $color-primary;
+        }
+    }
+}
+
+.body {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: 16px;
+}
+
+.title {
+    margin: 0;
+    font-size: 16px;
+    color: $color-text-dark;
+}
+
+.content {
+    margin: 0;
+    margin-top: 8px;
+    font-size: 14px;
+    color: $color-text-lightest;
+}

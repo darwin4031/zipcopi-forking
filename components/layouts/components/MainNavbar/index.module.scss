@@ -1,0 +1,59 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $zindex-Navbar;
+
+    padding: 16px 0;
+    background-color: #ffffff;
+}
+
+.NavbarFlex {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavbarBump {
+    display: none;
+    width: 40px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    @include breakpoint-down(sm) {
+        display: block;
+    }
+}
+
+.NavbarToggler {
+    color: $color-primary;
+}
+
+.LinkWrapper {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint-down(sm) {
+        display: none;
+    }
+}
+
+.ButtonWrapper {
+    $local-gutter: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: (0 - $local-gutter);
+
+    @include breakpoint-down(sm) {
+        display: none;
+    }
+
+    & > * {
+        padding: $local-gutter;
+    }
+}

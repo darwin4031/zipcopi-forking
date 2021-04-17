@@ -1,0 +1,29 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Dashboard {
+  min-height: 100vh;
+  background-color: #eee;
+}
+
+.DashboardBody {
+  padding-top: $navbar-height;
+  padding-left: $DashboardNav-width;
+
+  @include breakpoint-down(sm) {
+    padding-left: 0;
+  }
+
+  @include breakpoint-down(xs) {
+    padding-bottom: $BottomNavbar-height;
+  }
+}
+
+.loadingWrapper {
+  position: relative;
+  height: calc(100vh - #{$navbar-height});
+
+  &.isPercentage {
+    height: 100%;
+  }
+}

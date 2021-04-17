@@ -1,0 +1,54 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+$indicator-size: 1.8em;
+$indicator-margin: 8px;
+
+.Checkbox {
+    // display: flex;
+    // align-items: center;
+}
+
+.CheckboxWrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.CheckboxInput {
+}
+
+.CheckboxIndicator {
+    height: $indicator-size;
+    width: $indicator-size;
+    display: flex;
+    margin-right: $indicator-margin;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color-text-lighter;
+    border-radius: 4px;
+    // background-color: red;
+}
+
+.CheckboxSvg {
+    display: block;
+    height: 1.2em;
+    transform: translateY(-0.03em);
+    opacity: 0;
+}
+
+.Checkbox .CheckboxError {
+    margin-left: $indicator-size;
+    padding-left: $indicator-margin;
+    margin-top: 4px;
+}
+
+.Checkbox.isChecked {
+    .CheckboxIndicator {
+        border-color: $color-primary;
+    }
+
+    .CheckboxSvg {
+        opacity: 1;
+    }
+}

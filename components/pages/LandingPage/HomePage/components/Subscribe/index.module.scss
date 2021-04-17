@@ -1,0 +1,77 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.subscribe {
+    padding-top: 8px;
+    padding-bottom: 24px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: $color-light;
+    background-color: $color-primary;
+
+    &__field {
+        display: flex;
+        width: 550px;
+        max-width: 100%;
+        margin: auto;
+        margin-top: 24px;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: $color-light;
+        box-shadow: 0 12px 20px 0 rgba($color-black, 0.1);
+    }
+
+    &__inputWrapper {
+        flex-shrink: 1;
+        flex-grow: 1;
+    }
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        display: block;
+        padding: 16px;
+        font: inherit;
+        font-size: 14px;
+        border: none;
+        outline: none;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: rgba($color-text-lightest, 0.6);
+        }
+    }
+
+    &__action {
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding: 10px;
+    }
+
+    &__actionBtn {
+        min-width: 160px;
+
+        @include breakpoint-down(xs) {
+            min-width: 0;
+        }
+    }
+}
+
+.popup {
+    &__box {
+      width: 400px;
+      padding: 24px;
+    }
+
+    &__content {
+        margin-top: 16px;
+    }
+
+    &__action {
+        margin-top: 16px;
+    }
+}

@@ -1,0 +1,146 @@
+@import "~styles/abstracts/_variables.scss";
+
+.Button {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  padding: 12px 24px;
+  font: inherit;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  transition: $transition-primary;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($color-primary, 0.2);
+  }
+
+  &.variant-primary {
+    color: $color-text-light;
+    background-color: $color-primary;
+
+    &:hover,
+    &:focus {
+      background-color: darken($color-primary, 6);
+    }
+  }
+
+  &.variant-secondary {
+    font-weight: 600;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    background-color: $color-light;
+
+    &:hover,
+    &:focus {
+      background-color: mix($color-primary, $color-light, 20);
+    }
+  }
+
+  &.variant-white {
+    border: 1px solid $color-light;
+    color: $color-primary;
+    background-color: $color-light;
+
+    &:hover,
+    &:focus {
+      background-color: darken($color-light, 10);
+    }
+  }
+
+  &.variant-white-secondary {
+    color: $color-light;
+    border: 1px solid $color-light;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($color-light, 0.1);
+    }
+  }
+
+  &.variant-success {
+    color: $color-light;
+    border: 1px solid $color-success;
+    background-color: $color-success;
+
+    &:hover,
+    &:focus {
+      background-color: rgba($color-success, 0.9);
+    }
+  }
+
+  &.type-fab {
+    padding: 0;
+    height: 40px;
+    width: 40px;
+
+    .ButtonSvg {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &.isLoading {
+    .ButtonSvg,
+    .ButtonText {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .ButtonLoader {
+      opacity: 1;
+      pointer-events: inherit;
+    }
+  }
+}
+
+.ButtonSvg {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+
+  &:nth-last-child(1) {
+    margin-right: 0;
+  }
+
+  * {
+    fill: currentColor;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.ButtonLoader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ButtonLoaderSpin {
+  animation: spin 1s linear infinite;
+}
+
+.ButtonLoaderSvg {
+  display: block;
+  height: 16px;
+}

@@ -1,0 +1,149 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.footer {
+    min-height: 250px;
+    padding-top: 32px;
+    padding-bottom: 24px;
+    background-color: $color-primary;
+    background-image: url("/img/footer-bg.png");
+    background-size: auto 250px;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.top {
+    color: $color-light;
+
+    &__flex {
+        display: flex;
+
+        @include breakpoint-down(md) {
+            flex-direction: column;
+        }
+    }
+
+    &__col {
+        &:nth-child(1) {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        &:nth-child(2) {
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        @include breakpoint-down(md) {
+            &:not(:nth-child(1)) {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+    }
+
+    &__socialBtn {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 50%;
+
+        &:hover,
+        &:focus {
+            opacity: 0.7;
+        }
+    }
+
+    &__socialBtnIcon {
+        height: 26px;
+        width: 26px;
+        color: $color-light;
+    }
+
+    &__address {
+        margin-top: 24px;
+        color: rgba($color-light, 0.8);
+    }
+
+    &__addressName {
+        font-weight: 600;
+    }
+
+    &__addressLocation {
+        margin-top: 4px;
+    }
+
+    &__contact {
+        margin-top: 32px;
+        color: rgba($color-light, 0.8);
+    }
+
+    &__contactEmail {
+        margin-top: 4px;
+        font-weight: 600;
+    }
+
+    &__navsFlex {
+        $local-gutter: 8px;
+        display: flex;
+        margin: (0 - $local-gutter);
+
+        .nav {
+            padding: $local-gutter;
+        }
+    }
+}
+
+.nav {
+    min-width: 180px;
+
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &__list {
+        margin-top: 20px;
+    }
+
+    &__item {
+        margin-top: 10px;
+    }
+
+    &__itemLink {
+        color: rgba($color-light, 0.8);
+
+        &:hover,
+        &:focus {
+            border-color: $color-light;
+        }
+    }
+}
+
+.bottom {
+    margin-top: 48px;
+    border-top: 1px solid $color-light;
+
+    &__flex {
+        padding-top: 32px;
+        padding-bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $color-text-light;
+    }
+
+    &__logo {
+        height: 28px;
+
+        path {
+            fill: $color-light;
+        }
+    }
+}

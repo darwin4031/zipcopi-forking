@@ -1,0 +1,45 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Promo {
+    margin: 24px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 32px 40px -6px rgba($color-black, 0.06);
+    border-radius: 20px;
+    background-color: $color-light;
+}
+
+.PromoIcon {
+    display: table;
+    padding: 16px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgba($color-primary, 0.2);
+}
+
+.PromoSvg {
+    height: 32px;
+    color: $color-primary;
+
+    & > * {
+        fill: currentColor;
+    }
+}
+
+.PromoTitle {
+    margin-top: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $color-text-dark;
+
+    b {
+        color: $color-primary-darker;
+    }
+}
+
+.PromoButton {
+    font-size: 14px;
+    margin-top: 16px;
+    font-weight: 700;
+}

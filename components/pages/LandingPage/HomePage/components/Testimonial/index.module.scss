@@ -1,0 +1,48 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.testimonial {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    background-color: $color-primary;
+
+    &__background {
+        position: absolute;
+        z-index: 0;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__backgroundSvg {
+        height: 120vh;
+        max-height: 90vw;
+    }
+}
+
+.item {
+    min-height: 150px;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $color-light;
+
+    &__inner {
+        width: 750px;
+        max-width: calc(100% - #{60px * 2});
+        margin: auto;
+    }
+
+    &__content {
+        line-height: 1.6;
+    }
+
+    &__name {
+        margin-top: 24px;
+        font-weight: 700;
+        font-size: 18px;
+    }
+}

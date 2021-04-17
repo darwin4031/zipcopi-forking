@@ -1,0 +1,30 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+
+.flex {
+  $local-gutter: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: (0 - $local-gutter);
+
+  & > * {
+    width: 100%;
+    padding: $local-gutter;
+
+    @include breakpoint-up(lg) {
+      width: 50%;
+    }
+  }
+}
+
+.col {
+}
+
+.field {
+  margin-top: 24px;
+}
+
+.upload {
+  margin-top: 8px;
+}

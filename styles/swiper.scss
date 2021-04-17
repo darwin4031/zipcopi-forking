@@ -1,0 +1,40 @@
+// ----------------------------------------------------------------------------
+// Swiper Customization
+// ----------------------------------------------------------------------------
+.swiper-button-prev,
+.swiper-button-next {
+  top: calc(50% - 40px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: $color-light;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($color-light, 0.1);
+  }
+
+  &::after {
+    font-size: 24px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $color-light;
+}
+
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  left: 0;
+  right: auto;
+}
+
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  left: auto;
+  right: 0;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0;
+}

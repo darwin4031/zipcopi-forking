@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="302" viewBox="0 0 600 302">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="shape-baru" width="600" height="302" transform="translate(-848 2868)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="shadow-shape" transform="translate(848 -2868)" clip-path="url(#clip-path)" style="isolation: isolate">
+    <path id="Path_6529" data-name="Path 6529" d="M-234.075,2844.773s-252.307-2.352-349.936,65.282-17.644,125.859-37.052,167.616-77.045,74.692-200.552,101.158,299.945-2.353,299.945-2.353H-219.96Z" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/animations.scss";
+
+.wholeLoading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $zindex-wholeLoading;
+
+  &__element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__rotator {
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: spin;
+  }
+
+  &__svg {
+    height: 40px;
+    width: 40px;
+    display: block;
+    color: $color-primary;
+  }
+}

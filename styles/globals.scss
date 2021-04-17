@@ -1,0 +1,110 @@
+//@import "../node_modules/react-datepicker/src/stylesheets/datepicker.scss";
+
+// Draftjs
+// ----------------------------------------------------------------------------
+//@import "../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// ----------------------------------------------------------------------------
+
+// Swiper styles
+@import "../node_modules/swiper/swiper.scss";
+@import "../node_modules/swiper/components/navigation/navigation.scss";
+@import "../node_modules/swiper/components/pagination/pagination.scss";
+@import "../node_modules/swiper/components/scrollbar/scrollbar.scss";
+@import "./abstracts/variables";
+@import "./swiper.scss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  // font-family: "cera pro light", "Helvetica Neue", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 1200px;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* ######################################### Font Settings ################################### */
+
+@font-face {
+  font-family: "cera pro light";
+  src: url("../public/fonts/Cera-Pro-Light.otf");
+  font-display: swap;
+}
+
+@font-face {
+    font-family: "cera pro black";
+    src: url("../public/fonts/Cera-Pro-Black.otf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "cera pro bold";
+    src: url("../public/fonts/Cera-Pro-Bold.otf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "cera pro medium";
+    src: url("../public/fonts/Cera-Pro-Medium.otf");
+    font-display: swap;
+}
+
+.hide-input {
+    display: block;
+    height: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+}
+
+.reset-button {
+    cursor: pointer;
+    outline: none;
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.adminSelection__control.adminSelection__control {
+    border-bottom-width: 0;
+    background-color: transparent;
+
+    &:hover {
+        border-bottom-width: 0;
+    }
+}
+
+.adminSelection__single-value.adminSelection__single-value {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 14px;
+    color: $color-primary;
+}
+
+
+
+.RFS-Label {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(40, 49, 95, 0.45);
+}

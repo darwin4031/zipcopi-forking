@@ -1,0 +1,11 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.loadingWrapper {
+  position: relative;
+  height: calc(100vh - #{$navbar-height});
+
+  &.isPercentage {
+    height: 100%;
+  }
+}
