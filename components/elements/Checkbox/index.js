@@ -26,6 +26,10 @@ const Checkbox = ({
     return () => null;
   }, [checkboxRef]);
 
+  useEffect(() => {
+    setChecked(checked);
+  }, [checked]);
+
   const onChange = () => {
     if (readOnly) return false;
 

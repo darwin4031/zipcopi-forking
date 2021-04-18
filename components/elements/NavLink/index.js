@@ -1,7 +1,7 @@
+import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { cloneElement, Children } from "react";
-import clsx from "clsx";
+import { Children, cloneElement } from "react";
 
 const NavLink = ({
   href,

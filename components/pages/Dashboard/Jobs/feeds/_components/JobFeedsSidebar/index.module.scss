@@ -1,0 +1,46 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.sidebar {
+    composes: sidebar from "../../../root.module.scss";
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.sidebarFilter {
+    margin-top: 32px;
+
+    &:nth-child(1) {
+        margin-top: 0;
+    }
+}
+
+.sidebarFilterOptions {
+    margin-top: 16px;
+}
+
+.checkbox {
+    margin-top: 6px;
+}
+
+.checkboxIndicator.checkboxIndicator {
+    height: 24px;
+    width: 24px;
+    border-color: $color-primary-1;
+}
+
+.checkboxSvg.checkboxSvg {
+    height: 1em;
+}
+
+.sidebarFilterPrices {
+    margin-top: 16px;
+}
+
+.sidebarFilterPrice {
+    margin-top: 8px;
+}
+
+.textFieldInput {
+    background-color: $color-bg-OrderNewPremium;
+}

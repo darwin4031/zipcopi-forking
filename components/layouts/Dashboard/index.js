@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import DashboardNav from "./components/DashboardNav/DashboardNav";
 import DashboardSearchbar from "./components/DashboardSearchbar/DashboardSearchbar";
-import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
-import clsx from "clsx";
 
 import styles from "./index.module.scss";
 

@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import useSWR from "swr";
+import EmptyJob from "~components/elements/EmptyJob";
+import LoadingWrapper from "~components/elements/LoadingWrapper";
 import { AuthContext } from "~context/auth";
 import { fetcher, maybe } from "~utils/index";
-import LoadingWrapper from "~components/elements/LoadingWrapper";
-import EmptyJob from "~components/elements/EmptyJob";
-import styles from "./index.module.scss";
 import JobCard from "../_components/JobCard";
+import styles from "./index.module.scss";
+
 const status = {
   client: ["place_order", "place_quote", "revising", "writing", "pending_payment"],
   writer: ["revising", "writing", "pending_payment"],

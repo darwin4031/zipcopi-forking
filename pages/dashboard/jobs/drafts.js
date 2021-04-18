@@ -5,7 +5,7 @@ import JobDrafts from "~components/pages/Dashboard/Jobs/drafts";
 
 const Drafts = () => {
   return (
-    <AuthChecker isClient>
+    <AuthChecker role="client">
       <Head>
         <title>Zipcopi - Drafts</title>
       </Head>

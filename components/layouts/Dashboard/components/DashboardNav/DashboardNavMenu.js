@@ -1,5 +1,5 @@
-import styles from "./DashboardNavMenu.module.scss";
 import NavLink from "~components/elements/NavLink";
+import styles from "./DashboardNavMenu.module.scss";
 
 const DashboardNavMenu = ({
   href,

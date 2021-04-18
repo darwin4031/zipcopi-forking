@@ -1,0 +1,94 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.item {
+    composes: Item from "../../../root.module.scss";
+}
+
+.itemIcon {
+    composes: ItemIcon from "../../../root.module.scss";
+}
+
+.itemSvg {
+    composes: ItemSvg from "../../../root.module.scss";
+}
+
+.itemBody {
+    composes: ItemBody from "../../../root.module.scss";
+    flex-grow: 1;
+}
+
+.itemTitle {
+    composes: ItemTitle from "../../../root.module.scss";
+}
+
+.itemBrief {
+    composes: ItemBrief from "../../../root.module.scss";
+}
+
+.itemBrief.itemBrief {
+    margin-bottom: 0;
+}
+
+.itemGroupWrapper {
+    composes: ItemGroupWrapper from "../../../root.module.scss";
+}
+
+.date {
+    composes: Date from "../../../root.module.scss";
+}
+
+.wordCount {
+    composes: WordCount from "../../../root.module.scss";
+}
+
+.type {
+    composes: Tag from "../../../root.module.scss";
+}
+
+.groupItem {
+    composes: GroupItem from "../../../root.module.scss";
+    font-size: 14px;
+    color: $color-text-lightest;
+}
+
+.groupItemIcon {
+    composes: GroupItemIcon from "../../../root.module.scss";
+}
+
+.groupItemSvg {
+    composes: GroupItemSvg from "../../../root.module.scss";
+
+    path {
+        fill: currentColor;
+    }
+}
+
+.groupItemText {
+    composes: GroupItemText from "../../../root.module.scss";
+}
+
+.groupItemText.groupItemText {
+    font-size: inherit;
+    color: inherit;
+}
+
+.itemAction {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.itemActionPrice {
+    font-weight: normal;
+    color: $color-primary;
+}
+
+.itemActionSvg {
+    height: 24px;
+    width: 24px;
+    display: block;
+    color: $color-text-lightest;
+}

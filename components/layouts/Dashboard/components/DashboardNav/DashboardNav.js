@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import { useContext, useRef } from "react";
 import { useClickAway } from "react-use";
+import Brand from "~components/layouts/components/Brand";
 import IconHome from "~components/svg/icon-home.svg";
 import IconJob from "~components/svg/icon-job.svg";
 import IconMessage from "~components/svg/icon-message.svg";
@@ -7,11 +9,9 @@ import IconProfileCompletion from "~components/svg/icon-profile-completion.svg";
 import IconSettings from "~components/svg/icon-settings.svg";
 import { AuthContext } from "~context/auth";
 import checkActiveUrl from "~utils/checkActiveUrl";
-import Brand from "~components/layouts/components/Brand";
 import styles from "./DashboardNav.module.scss";
 import DashboardNavMenu from "./DashboardNavMenu";
 import DashboardNavProfile from "./DashboardNavProfile";
-import clsx from "clsx";
 
 const DashboardNav = ({ isOpen, onClose = () => {} }) => {
   const { auth } = useContext(AuthContext);
@@ -75,12 +75,20 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
             {isJobUrl ? (
               <div className={styles.jobGroup}>
                 {isRoleClient ? (
-                  <DashboardNavMenu
-                    href="/dashboard/jobs/create"
-                    label="Add New"
-                    onClick={onClose}
-                    exact={true}
-                  />
+                  <>
+                    <DashboardNavMenu
+                      href="/dashboard/jobs/create"
+                      label="Add New"
+                      onClick={onClose}
+                      exact={true}
+                    />
+                    <DashboardNavMenu
+                      href="/dashboard/jobs/drafts"
+                      label="Drafts"
+                      onClick={onClose}
+                      exact={true}
+                    />
+                  </>
                 ) : (
                   <DashboardNavMenu
                     href="/dashboard/jobs/feeds"
@@ -89,13 +97,6 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
                     exact={true}
                   />
                 )}
-
-                <DashboardNavMenu
-                  href="/dashboard/jobs/drafts"
-                  label="Drafts"
-                  onClick={onClose}
-                  exact={true}
-                />
 
                 <DashboardNavMenu
                   href="/dashboard/jobs/in-progress"

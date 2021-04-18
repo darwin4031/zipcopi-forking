@@ -88,4 +88,28 @@
   color: $color-text-FilterSortOption;
   background-color: $color-bg-FilterSelectionItem;
   text-transform: capitalize;
+
+  &.yellow {
+    color: $color-text-light;
+    background-color: $color-warning;
+  }
+
+  &.green {
+    color: $color-text-light;
+    background-color: $color-success;
+  }
+  &.teal {
+    color: $color-text-light;
+    background-color: $color-primary;
+  }
+
+  &.red {
+    color: $color-text-light;
+    background-color: $color-error;
+  }
+
+  &.blue {
+    color: $color-text-light;
+    background-color: $color-blue;
+  }
 }

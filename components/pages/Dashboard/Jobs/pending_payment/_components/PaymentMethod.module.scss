@@ -1,0 +1,35 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.container {
+  padding: 12px 20px 12px 0;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(57, 76, 74, 0.13);
+}
+
+.methodBlock {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(57, 76, 74, 0.13);
+  margin-bottom: 36px;
+}
+
+.methodCheckbox {
+  margin-right: 30px;
+}
+
+.methodCheckboxLabel {
+  font-size: 15px;
+  font-weight: 400;
+  color: $color-logo-gray;
+}
+
+.methodCheckboxIndicator {
+  height: 24px;
+  width: 24px;
+}

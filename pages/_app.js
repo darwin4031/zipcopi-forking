@@ -1,4 +1,6 @@
 import axios from "axios";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import WholeLoading from "~components/elements/WholeLoading";
@@ -7,6 +9,9 @@ import { AuthProvider } from "~context/auth";
 import { GlobalProvider } from "~context/global";
 import useCheckProfile from "~hooks/useCheckProfile";
 import "~styles/globals.scss";
+
+// set plugin for dayjs
+dayjs.extend(relativeTime);
 
 //set default BASE URI AND TOKEN
 axios.defaults.baseURL = API_BASE_URI;

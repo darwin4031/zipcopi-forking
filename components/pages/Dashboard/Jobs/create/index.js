@@ -10,7 +10,7 @@ import ConfirmationPopup from "~components/elements/ConfirmationPopup";
 import LoadingWrapper from "~components/elements/LoadingWrapper";
 import { fetcher, maybe, setErrors } from "~utils/index";
 import JobForm from "../_components/JobForm";
-import styles from "./New.module.scss";
+import styles from "./index.module.scss";
 
 const schema = yup.object().shape({
   type: yup.string().required("Please fill this field!"),

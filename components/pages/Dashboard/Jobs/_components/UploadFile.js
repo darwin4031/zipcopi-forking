@@ -1,15 +1,17 @@
 import axios from "axios";
 import clsx from "clsx";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
-import IconAddCircle from "~components/svg//icon-add-circle.svg";
-import IconClose from "~components/svg//icon-close.svg";
-import IconFiletypeDoc from "~components/svg//icon-filetype-doc.svg";
-import IconFiletypeFile from "~components/svg//icon-filetype-file.svg";
-import IconFiletypeImage from "~components/svg//icon-filetype-image.svg";
-import IconFiletypePdf from "~components/svg//icon-filetype-pdf.svg";
-import IconFiletypeSpredsheet from "~components/svg//icon-filetype-spreadsheet.svg";
-import styles from "./index.module.scss";
+import IconAddCirle from "~components/svg/icon-add-circle.svg";
+import IconClose from "~components/svg/icon-close.svg";
+import IconFiletypeDoc from "~components/svg/icon-filetype-doc.svg";
+import IconFiletypeFile from "~components/svg/icon-filetype-file.svg";
+
+import IconFiletypeImage from "~components/svg/icon-filetype-image.svg";
+import IconFiletypePdf from "~components/svg/icon-filetype-pdf.svg";
+import IconFiletypeSpredsheet from "~components/svg/icon-filetype-spreadsheet.svg";
+import styles from "./UploadFile.module.scss";
 
 // MIME Type as a key
 // see: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
@@ -42,20 +44,14 @@ function getExtension(filename) {
   return parts[parts.length - 1];
 }
 
-const Item = ({
-  value,
-  idx,
-  previewInnerClassName,
-  previewClassName,
-  onChange = (val) => {},
-  file,
-}) => {
-  const IconType = iconFiletype[getExtension(file?.name)] ?? iconFiletype.file;
+const Item = ({ value, idx, previewInnerClassName, previewClassName, file, onChange }) => {
+  const router = useRouter();
+  const fileName = file?.name || file.file.split("/").pop();
+  const IconType = iconFiletype[getExtension(fileName)] ?? iconFiletype.file;
   const [isDeleting, setDeleting] = useState(false);
 
   const deleteFromBackend = (fileId, callback) => {
-    const jobId = router.query.jobId;
-    //--prod console.log({ jobId });
+    const jobId = router.query.id;
     axios
       .delete(`/jobs/${jobId}/files/${fileId}/`)
       .then(() => callback())
@@ -74,10 +70,9 @@ const Item = ({
           onClick={() => {
             const newValue = [...value];
             newValue.splice(idx, 1);
-
             if (file?.id) {
               setDeleting(true);
-              deleteFromBackend(file?.id_backend, () => {
+              deleteFromBackend(file?.id, () => {
                 setDeleting(false);
                 onChange(newValue);
               });
@@ -91,15 +86,28 @@ const Item = ({
         <div className={styles.previewIcon}>
           <IconType />
         </div>
-        <div className={styles.previewName}>{file?.name ?? ""}</div>
+        <div className={styles.previewName}>{fileName}</div>
       </div>
     </div>
   );
 };
 
+/**
+ * UploadFile
+ * @param {Object} props
+ * @param {File[]} props.value
+ * @param {String} props.label
+ * @param {String} props.labelClassName
+ * @param {String} props.className
+ * @param {String} props.previewWrapperClassName
+ * @param {String} props.previewInnerClassName
+ * @param {String} props.previewClassName
+ * @param {String} props.name
+ * @param {Boolean} props.multiple
+ * @param {(val: File[]) => {}} props.onChange
+ */
 const UploadFile = ({
   value = [],
-  oldFiles = [],
   label,
   className,
   labelClassName,
@@ -112,21 +120,19 @@ const UploadFile = ({
 }) => {
   return (
     <div className={className}>
-      {oldFiles.length > 0 || value.length > 0 ? (
+      {value.length > 0 ? (
         <div className={clsx(styles.previewWrapper, previewWrapperClassName)}>
-          {oldFiles.length > 0 && oldFiles.map((file, i) => <div key={i}>{i}</div>)}
-          {value.length > 0 &&
-            value.map((file, i) => (
-              <Item
-                key={i}
-                idx={i}
-                file={file}
-                value={value}
-                previewInnerClassName={previewInnerClassName}
-                previewClassName={previewClassName}
-                onChange={onChange}
-              />
-            ))}
+          {value.map((file, i) => (
+            <Item
+              key={i}
+              idx={i}
+              file={file}
+              value={value}
+              previewInnerClassName={previewInnerClassName}
+              previewClassName={previewClassName}
+              onChange={onChange}
+            />
+          ))}
         </div>
       ) : null}
 
@@ -146,7 +152,7 @@ const UploadFile = ({
             }}
           />
           <div className={styles.upload}>
-            <ButtonIcon svg={IconAddCircle} />
+            <ButtonIcon svg={IconAddCirle} />
             <ButtonText>{label}</ButtonText>
           </div>
         </label>

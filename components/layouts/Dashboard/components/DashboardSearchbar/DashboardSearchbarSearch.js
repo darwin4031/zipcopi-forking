@@ -1,5 +1,5 @@
-import styles from "./DashboardSearchbarSearch.module.scss";
 import IconSearch from "~components/svg/icon-search.svg";
+import styles from "./DashboardSearchbarSearch.module.scss";
 
 const DashboardSearchbarSearch = () => {
   return (

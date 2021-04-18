@@ -28,15 +28,21 @@ const JobCard = ({ data }) => {
     status,
     word_count,
     deadline_date,
-    bulk_quantity,
-    unit_total,
+    sub_total,
     brief,
     type_display: { name: typeName },
     subject_display: { name: subjectName },
   } = data;
   const icon = iconMapper?.[typeName] ? iconMapper[typeName] : iconMapper["Custom Job"];
   const iconComp = cloneElement(icon, { className: styles.itemSvg });
-
+  const statusColor =
+    status === "draft"
+      ? "teal"
+      : status === "pending_payment"
+      ? "red"
+      : status === "completed"
+      ? "green"
+      : "yellow";
   return (
     <Link href={`/dashboard/jobs/${id}`}>
       <div className={styles.container}>
@@ -63,14 +69,13 @@ const JobCard = ({ data }) => {
             </div>
           </div>
           <div className={styles.tagsWrapper}>
-            <div className={clsx(styles.tag)}>{statusEnums[status].display}</div>
-            <div className={clsx(styles.tag)}>{typeName}</div>
-          </div>
-          <div className={styles.tagsWrapper}>
-            <div className={clsx(styles.tag)}>
-              {bulk_quantity}x{unit_total.toLocaleString()} = £
-              {(bulk_quantity * unit_total).toLocaleString()}
+            <div className={clsx(styles.tag, styles[statusColor])}>
+              {statusEnums[status].display}
             </div>
+            <div className={clsx(styles.tag)}>{typeName}</div>
+            {sub_total > 0 && (
+              <div className={clsx(styles.tag, styles.blue)}>£ {sub_total.toLocaleString()}</div>
+            )}
           </div>
         </div>
       </div>

@@ -1,12 +1,12 @@
-import styles from "./DashboardWriterContent.module.scss";
-import ProfileCompletionChecklist from "@/components/ProfileCompletionChecklist/ProfileCompletionChecklist";
-import Tips from "~components/elements/Tips";
 import MyProjects from "@/components/MyProjects/MyProjects";
+import ProfileCompletionChecklist from "@/components/ProfileCompletionChecklist/ProfileCompletionChecklist";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
+import clsx from "clsx";
 import useProjectsListData from "hooks/useProjectsListData";
+import Tips from "~components/elements/Tips";
 import { LoadingWrapper } from "../Dashboard/Dashboard";
 import WholeLoading from "../WholeLoading";
-import clsx from "clsx";
+import styles from "./DashboardWriterContent.module.scss";
 
 const DashboardWriterContent = () => {
   const { data, isLoading } = useProjectsListData();

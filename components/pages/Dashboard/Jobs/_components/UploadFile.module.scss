@@ -2,7 +2,7 @@
 @import "~styles/abstracts/_variables.scss";
 
 .upload {
-    composes: Button from "../Button/index.module.scss";
+    composes: Button from "~components/elements/Button/index.module.scss";
     padding: 8px;
     color: $color-primary;
 }

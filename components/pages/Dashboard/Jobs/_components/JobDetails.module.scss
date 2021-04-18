@@ -1,0 +1,32 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.subject {
+  margin: 0;
+  margin-top: 16px;
+  font-size: 16px;
+  color: lighten($color-text-dark, 10);
+}
+
+.content {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.8;
+
+  @include breakpoint-up(xl) {
+    width: 600px;
+    max-width: 100%;
+  }
+
+  p {
+    margin: 1.6em 0;
+
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+}

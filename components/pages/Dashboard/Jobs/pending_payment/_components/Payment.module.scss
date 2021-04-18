@@ -1,0 +1,49 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+
+.paymentContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 26px;
+  background-color: $color-text-light;
+  padding: 0 30px;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.titleBlock {
+  padding: 20px 0;
+  margin-bottom: 33px;
+  border-bottom: 1px solid rgba(57, 76, 74, 0.09);
+
+  & .title {
+    color: $color-logo-gray;
+  }
+}
+
+.subTitleBlock {
+
+  & h4 {
+    font-weight: 400;
+    color: $color-logo-gray;
+  }
+}
+
+.stepperBlock {
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(57, 76, 74, 0.09);
+}
+
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

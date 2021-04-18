@@ -1,0 +1,67 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+  composes: root from "../root.module.scss";
+}
+
+.box {
+  composes: box from "../root.module.scss";
+  padding: 32px 0;
+  background-color: transparent;
+}
+
+.flex {
+  composes: flex from "../root.module.scss";
+}
+
+.body {
+  composes: body from "../root.module.scss";
+}
+
+.bodyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bodyHeaderFlex {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.greenSelectBox.greenSelectBox {
+  width: 100px;
+  margin-left: 8px;
+}
+
+.greenSelectBoxInner.greenSelectBoxInner {
+  margin-top: 0;
+}
+
+.bodyHeaderReload {
+  color: $color-primary;
+}
+
+.bodyHeaderReloadIcon.bodyHeaderReloadIcon {
+  height: 28px;
+  width: 28px;
+}
+
+.bodyJobs {
+  margin-top: 20px;
+}
+
+.bodyJobItem {
+  margin-top: 16px;
+}
+
+.notFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+  color: $color-primary;
+}

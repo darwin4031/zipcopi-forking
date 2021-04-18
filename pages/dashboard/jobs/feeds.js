@@ -1,19 +1,19 @@
 import Head from "next/head";
 import AuthChecker from "~components/elements/AuthChecker";
 import DashboardLayout from "~components/layouts/Dashboard";
-import JobCreate from "~components/pages/Dashboard/Jobs/create";
+import JobFeeds from "~components/pages/Dashboard/Jobs/feeds";
 
-const Create = () => {
+const Feeds = () => {
   return (
-    <AuthChecker role="client">
+    <AuthChecker role="writer">
       <Head>
-        <title>Zipcopi - Add New Order</title>
+        <title>Zipcopi - Feeds</title>
       </Head>
       <DashboardLayout>
-        <JobCreate />
+        <JobFeeds />
       </DashboardLayout>
     </AuthChecker>
   );
 };
 
-export default Create;
+export default Feeds;

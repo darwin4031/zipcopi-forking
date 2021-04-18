@@ -1,3 +1,9 @@
+export const premiumJob = {
+  basic: { value: "basic", display: "Basic" },
+  premium: { value: "premium", display: "Premium" },
+  bespoke: { value: "bespoke", display: "Bespoke" },
+};
+
 export const role = {
   client: { value: "client", display: "Client" },
   writer: { value: "writer", display: "Writer" },

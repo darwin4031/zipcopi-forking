@@ -1,0 +1,16 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.selectBoxInner {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.selectBoxIcon {
+    height: 16px;
+    width: 16px;
+}
+
+.selectBoxIndicator.selectBoxIndicator {
+    padding-left: 4px;
+}

@@ -1,9 +1,9 @@
 import { Controller } from "react-hook-form";
 import SelectBox from "~components/elements/SelectBox";
 import TextField from "~components/elements/TextField";
-import UploadFile from "~components/elements/UploadFile";
 import styles from "./JobForm.module.scss";
 import JobPremiumChoices from "./JobPremiumChoices";
+import UploadFile from "./UploadFile";
 
 const OrderForm = (props) => {
   const { control, files, setFiles, jobTypeOptions = [], subjectOptions = [] } = props;

@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import styles from "./index.module.scss";
 import WholeLoading from "../WholeLoading";
+import styles from "./index.module.scss";
 
 const LoadingWrapper = ({ usePercentage }) => (
   <div
