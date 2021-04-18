@@ -14,6 +14,7 @@ import JobRevising from "~components/pages/Dashboard/Jobs/revising";
 import JobWriting from "~components/pages/Dashboard/Jobs/writing";
 import { AuthContext } from "~context/auth";
 import { fetcher } from "~utils/index";
+import JobReview from "~components/pages/Dashboard/Jobs/review";
 
 const JobRoleChecker = (props) => {
   const router = useRouter();
@@ -54,6 +55,8 @@ const JobChooser = ({ data }) => {
     comp = <JobPendingPayment data={data} />;
   } else if (data.status === "writing") {
     comp = <JobWriting data={data} />;
+  } else if (data.status === "review") {
+    comp = <JobReview data={data} />;
   } else if (data.status === "revising") {
     comp = <JobRevising data={data} />;
   } else if (data.status === "completed") {

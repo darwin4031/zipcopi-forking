@@ -1,0 +1,44 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.insert {
+    position: relative;
+
+    &__button {
+        composes: button from "./EditorButtonToggler.module.scss";
+    }
+
+    &__inputFile {
+        display: none;
+    }
+
+    &__popupBox#{&}__popupBox {
+        width: 400px;
+        max-width: calc(100vw - 40px);
+        padding: 24px;
+        text-align: center;
+    }
+
+    &__or {
+        margin: 8px 0;
+        font-size: 14px;
+    }
+
+    &__urlInput#{&}__urlInput {
+        height: 43px;
+        margin-top: 0;
+        padding: 0 16px;
+        border-radius: 8px;
+        border: 1px solid $color-text-placeholder;
+    }
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        margin: (0 - ($gutter / 2));
+
+        div {
+            padding: ($gutter / 2);
+        }
+    }
+}

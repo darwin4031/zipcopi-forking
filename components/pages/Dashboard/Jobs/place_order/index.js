@@ -8,8 +8,7 @@ import JobDetailContainer from "~components/layouts/JobDetailContainer";
 import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
 import JobDetails from "../_components/JobDetails";
-import JobFiles from "../_components/JobFiles";
-import styles from "./index.module.scss";
+import JobDescription from "../_components/JobDescription";
 
 const JobWriterButton = ({ id }) => {
   const router = useRouter();
@@ -50,29 +49,18 @@ const JobWriterButton = ({ id }) => {
 };
 
 const JobPlaceOrder = ({ data }) => {
-  const {
-    id,
-    type_display: { name: typeName },
-    subject_display: { name: subjectName },
-    brief,
-    files,
-  } = data;
+  const { id } = data;
   const { auth } = useContext(AuthContext);
   return (
     <JobDetailContainer>
       <div className={jobDetailStyles.body}>
-        <div className={styles.container}>
-          <h4 className={styles.title}>{`#${id} ${typeName}`}</h4>
-          <h6 className={styles.subTitle}>{subjectName}</h6>
-          <div className={styles.brief}>{brief}</div>
-          <JobFiles files={files} />
-        </div>
+        <JobDescription data={data} />
       </div>
       <div className={jobDetailStyles.sidebar}>
         {auth.role === "writer" ? (
           <JobWriterButton id={id} />
         ) : (
-          <div className={jobDetailStyles.status}>Waiting for the writter</div>
+          <div className={jobDetailStyles.status}>Waiting for the writer</div>
         )}
         <JobDetails job={data} />
       </div>

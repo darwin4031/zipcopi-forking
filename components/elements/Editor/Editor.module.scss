@@ -1,0 +1,47 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    margin-top: 32px;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    padding: 8px 0;
+    color: $color-text-lightest;
+}
+
+.toolbar {
+    $local-gutter: 4px;
+    display: flex;
+    margin: (0 - $local-gutter);
+    border-radius: 8px;
+    background-color: $color-bg-OrderNewPremium;
+
+    & > * {
+        padding: $local-gutter;
+    }
+}
+
+.editable {
+    min-height: 200px !important;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba($color-text-lightest, 0.3);
+    font-size: 0.875em;
+
+    p {
+        margin: 1.6rem 0;
+    }
+
+    *:nth-child(1) {
+        margin-top: 0.3rem;
+    }
+}

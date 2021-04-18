@@ -15,6 +15,7 @@ export const status = {
   place_quote: { value: "draft", display: "Place Quote" },
   pending_payment: { value: "draft", display: "Pending Payment" },
   writing: { value: "draft", display: "Writing" },
+  review: { value: "review", display: "Reviewing" },
   revising: { value: "draft", display: "Revising" },
   completed: { value: "draft", display: "Completed" },
 };

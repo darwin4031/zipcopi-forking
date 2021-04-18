@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Checkbox from "~components/elements/Checkbox";
 import styles from "./PaymentMethod.module.scss";
-import { useState } from "react";
+import Stripe from "./Stripe";
+import Paypal from "./Paypal";
 
-const PaymentMethod = () => {
+const PaymentMethod = ({ payment }) => {
   const [method, setMethod] = useState("stripe");
 
   const onChangeMethod = (checked, key) => {
@@ -34,6 +36,7 @@ const PaymentMethod = () => {
           Paypal
         </Checkbox>
       </div>
+      {method === "stripe" ? <Stripe payment={payment} /> : <Paypal payment={payment} />}
     </div>
   );
 };

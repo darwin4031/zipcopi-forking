@@ -26,7 +26,6 @@ const Base = ({ jobTypeOptions }) => {
     minPrice: undefined,
     maxPrice: undefined,
   });
-  console.log(filter);
   const { data: rawData, mutate } = useSWR(
     [
       "/jobs/",

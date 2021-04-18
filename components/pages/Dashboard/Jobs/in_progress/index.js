@@ -8,8 +8,8 @@ import JobCard from "../_components/JobCard";
 import styles from "./index.module.scss";
 
 const status = {
-  client: ["place_order", "place_quote", "revising", "writing", "pending_payment"],
-  writer: ["revising", "writing", "pending_payment"],
+  client: ["place_order", "place_quote", "review", "revising", "writing", "pending_payment"],
+  writer: ["review", "revising", "writing", "pending_payment"],
 };
 
 const Base = ({ data = [] }) => {
