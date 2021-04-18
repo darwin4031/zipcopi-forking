@@ -1,0 +1,11 @@
+@import "~styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+
+.resend.resend.resend {
+  padding: 8px 16px;
+  height: unset;
+  width: unset;
+  margin-top: -16px;
+  color: $color-primary;
+  background-color: rgba($color-primary, 0.1);
+}

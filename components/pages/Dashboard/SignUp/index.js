@@ -88,7 +88,7 @@ const SignUp = () => {
   const onClickLinkedin = () => {
     const uri =
       process.env.NODE_ENV === "production"
-        ? `https://zipcopi.com/authentication/linkedin-register-${role}`
+        ? `${window.location.origin}/authentication/linkedin-register-${role}`
         : `http://localhost:3000/authentication/linkedin-register-${role}`;
     const oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress&state=1234as56&redirect_uri=${uri}`;
     router.push(oauthUrl);
@@ -268,7 +268,7 @@ const SignUp = () => {
         <p className={styles.popupContent}>
           Your account has been created, now please check your email to get the verification code!
         </p>
-        <Link href={`/verify?email=${encodeURIComponent(email)}`}>
+        <Link href={`/dashboard/verify?email=${encodeURIComponent(email)}`}>
           <a className={styles.popupLogin}>Verify</a>
         </Link>
       </Popup>

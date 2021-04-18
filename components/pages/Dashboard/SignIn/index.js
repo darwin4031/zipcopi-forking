@@ -93,7 +93,7 @@ const SignIn = () => {
   const onClickLinkedin = () => {
     const uri =
       process.env.NODE_ENV === "production"
-        ? "https://zipcopi.com/authentication/linkedin-signin"
+        ? `${window.location.origin}/authentication/linkedin-signin`
         : "http://localhost:3000/authentication/linkedin-callback-signin";
     const oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress&state=1234as56&redirect_uri=${uri}`;
     router.push(oauthUrl);
@@ -152,7 +152,7 @@ const SignIn = () => {
             <Button label="Sign In" isLoading={isSubmitting} onClick={handleSubmit(onSubmit)} />
             <AuthUiFormFieldsAlternate>
               Don’t have an account?
-              <GeneralLink href="/signup">Sign up now</GeneralLink>
+              <GeneralLink href="/dashboard/signup">Sign up now</GeneralLink>
             </AuthUiFormFieldsAlternate>
           </AuthUiFormFields>
         </AuthUiForm>
