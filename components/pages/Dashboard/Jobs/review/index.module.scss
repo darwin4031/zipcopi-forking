@@ -19,3 +19,71 @@
   font-size: 14px;
   color: $color-primary;
 }
+
+
+.amendBox.amendBox {
+  width: 450px;
+  padding: 48px 16px;
+  padding-top: 24px;
+}
+
+.amendIcon {
+  margin-bottom: 24px;
+
+  svg {
+    display: block;
+    margin: auto;
+    height: 80px;
+  }
+}
+
+.amendTitle {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  color: lighten($color-text-dark, 10);
+}
+
+.amendContent {
+  margin-top: 24px;
+  font-size: 14px;
+  text-align: center;
+  color: lighten($color-text-dark, 10);
+}
+
+.amendActions {
+  $local-gutter: 8px;
+  display: flex;
+  margin: (0 - $local-gutter);
+  margin-top: (24px - $local-gutter);
+
+  & > * {
+    padding: $local-gutter;
+    width: 50%;
+  }
+}
+
+.amendAction {
+  width: 100%;
+}
+
+.amendTextField {
+  margin-top: 16px;
+}
+
+.amendTextFieldTextarea.amendTextFieldTextarea {
+  height: 120px;
+  resize: none;
+}
+
+.infoBox.infoBox {
+  width: 450px;
+  padding: 24px 16px 16px 16px;
+}
+
+.infoContent {
+}
+
+.infoAction {
+  margin-top: 16px;
+}

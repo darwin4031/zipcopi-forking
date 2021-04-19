@@ -82,10 +82,10 @@ const StripeCheckout = ({ payment }) => {
         await mutate(`/jobs/${payment.job}`);
       } catch (e) {
         setError(e.response.data);
+        setError(null);
+        setProcessing(false);
+        setSucceeded(true);
       }
-      setError(null);
-      setProcessing(false);
-      setSucceeded(true);
     }
   };
 

@@ -29,7 +29,7 @@ const JobDetails = ({ job, withBrief }) => {
     <>
       <div className={jobDetailStyles.sidebarDivider} />
       <div>
-        <div className={jobDetailStyles.sidebarInfoTitle}>Job Details</div>
+        <h4 className={jobDetailStyles.sidebarInfoTitle}>Job Details</h4>
         <div className={jobDetailStyles.sidebarFlex}>
           <div>
             <div className={jobDetailStyles.sidebarLabel}>Deadline</div>

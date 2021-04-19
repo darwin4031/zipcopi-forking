@@ -1,0 +1,24 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.stars {
+    $local-gutter: 4px;
+    display: flex;
+    margin: (0 - $local-gutter);
+    margin-top: (12px - $local-gutter);
+    margin-bottom: (8px - $local-gutter);
+
+    & > * {
+        padding: $local-gutter;
+    }
+}
+
+.starIcon {
+    display: block;
+    height: 16px;
+    color: $color-bg-FilterCloseButton;
+
+    &.isActive {
+        color: $color-primary;
+    }
+}

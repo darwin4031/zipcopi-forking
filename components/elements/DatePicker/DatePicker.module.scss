@@ -1,0 +1,51 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.label {
+    font-size: 14px;
+    color: $color-text-lightest;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    svg {
+        display: block;
+        height: 16px;
+        color: $color-text-lightest;
+
+        path {
+            fill: currentColor;
+        }
+    }
+}
+
+.datePicker {
+    display: block;
+}
+
+.datePickerInput {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font: inherit;
+    letter-spacing: 0.1em;
+    border: none;
+    border-bottom: 1px solid $color-text-placeholder;
+
+    &::placeholder {
+        opacity: 1;
+        letter-spacing: normal;
+        color: $color-text-placeholder;
+    }
+}

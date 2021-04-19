@@ -1,0 +1,54 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.orderHistoryContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 26px;
+    background-color: $color-text-light;
+    padding: 0 30px;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0 28px 0; 
+
+    @include breakpoint-down(md) {
+        flex-direction: column;
+    }
+}
+
+.topBarActions {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint-down(md) {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+}
+
+.title {
+    color: $color-logo-gray;
+}
+
+.filterButton {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+
+    @include breakpoint-down(md) {
+        margin-top: 30px;
+    }
+
+}
+
+.filterButtonIcon {
+    margin-right: 6px;
+}

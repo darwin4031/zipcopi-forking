@@ -1,0 +1,61 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+.table {
+   width: 100%;
+   border-collapse: collapse;
+
+   & thead {
+   }
+
+    & tr {
+        color: $color-logo-gray;
+    }
+
+    & th {
+        font-size: 18px;
+        font-weight: 400;
+        padding: 18px 28px 20px 28px;
+        border-top: 1px solid rgba(57, 76, 74, 0.17);
+        border-bottom: 1px solid rgba(57, 76, 74, 0.17);
+    }
+
+    & td {
+        padding: 16px 16px 16px 28px;
+        font-size: 17px;
+        font-weight: 400;
+    }
+}
+
+.bodyRows {
+    background-color: $color-bg-OrderNewPremium;
+    border: 1px solid $color-bg-OrderNewPremium;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.spacerRow {
+    height: 18px;
+}
+
+.buyerCell {
+    display: flex;
+    align-items: center;
+}
+
+.buyerImage {
+    margin-right: 20px;
+}
+
+.ratingCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-text-light;
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: fit-content;
+}
+
+.ratingIcon {
+    margin-right: 8px;
+}

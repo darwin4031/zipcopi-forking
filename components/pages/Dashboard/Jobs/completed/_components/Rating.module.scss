@@ -1,0 +1,11 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.title {
+  composes: sidebarInfoSubtitle from "../../root.module.scss";
+}
+
+.btn {
+  composes: sidebarBtn from "../../root.module.scss";
+  composes: sidebarBtnReport from "../../root.module.scss";
+}

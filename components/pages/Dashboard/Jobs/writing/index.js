@@ -5,10 +5,12 @@ import Button from "~components/elements/Button";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
 import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
+import JobAmendHistories from "../_components/JobAmendHistories";
 import JobDescription from "../_components/JobDescription";
 import JobDetails from "../_components/JobDetails";
 import JobForm from "./_components/JobForm";
 import JobWithdraw from "./_components/JobWithdraw";
+import JobWriterWorkHistories from "../_components/JobWriterWorkHistories";
 
 const JobWriting = ({ data }) => {
   const router = useRouter();
@@ -34,6 +36,7 @@ const JobWriting = ({ data }) => {
     <JobDetailContainer>
       <div className={jobDetailStyles.body}>
         {isWriter ? <JobForm data={data} /> : <JobDescription data={data} />}
+        <JobWriterWorkHistories jobId={data.id} />
       </div>
       <div className={jobDetailStyles.sidebar}>
         {isWriter && (
@@ -47,6 +50,7 @@ const JobWriting = ({ data }) => {
         )}
         {isWriter ? <div /> : <div className={jobDetailStyles.status}>Being worked on</div>}
         <JobDetails job={data} withBrief={isWriter} />
+        <JobAmendHistories jobId={data.id} />
         {isWriter && <JobWithdraw data={data} />}
       </div>
     </JobDetailContainer>

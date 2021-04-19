@@ -134,13 +134,13 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
             {isRoleClient ? (
               <>
                 <DashboardNavMenu
-                  href="/client/dashboard/order-history"
+                  href="/dashboard/order-history"
                   icon={IconJob}
                   label="Order History"
                   onClick={onClose}
                 />
                 <DashboardNavMenu
-                  href="/client/dashboard/billing-history"
+                  href="/dashboard/billing-history"
                   icon={IconJob}
                   label="Billing History"
                   onClick={onClose}

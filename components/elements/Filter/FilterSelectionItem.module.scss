@@ -1,0 +1,21 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.Item {
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: $transition-primary;
+    border-radius: 6px;
+    color: $color-text-FilterSortOption;
+    background-color: $color-bg-FilterSelectionItem;
+
+    &.isSelected {
+        color: $color-primary;
+        background-color: rgba($color-primary, 0.3);
+    }
+}
+
+.ItemInput {
+}
