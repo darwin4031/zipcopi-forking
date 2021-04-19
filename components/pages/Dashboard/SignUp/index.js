@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Controller, useForm, useFormState, useWatch } from "react-hook-form";
 import * as yup from "yup";
 import Button from "~components/elements/Button";
@@ -27,6 +27,7 @@ import IllustrationSignup from "~components/svg/illustration-signup.svg";
 import { setErrors } from "~utils/index";
 import styles from "./index.module.scss";
 import SignupRoleSelection from "./SignupRoleSelection";
+import { AuthContext } from "~context/auth";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("Please fill this field!"),
@@ -46,6 +47,7 @@ const schema = yup.object().shape({
 
 const SignUp = () => {
   const router = useRouter();
+  const { setAuth } = useContext(AuthContext);
   const [isSuccessPopup, setSuccessPopup] = useState(false);
   const [agree, setAgree] = useState(false);
   const [agreeError, setAgreeError] = useState(undefined);
@@ -101,9 +103,12 @@ const SignUp = () => {
         role,
       });
       localStorage.setItem("token", JSON.stringify(res.data));
+      // get profile and save to context
+      const resProfile = await axios.get("/auth/profile/");
+      setAuth(resProfile.data);
       router.push("/dashboard");
     } catch (e) {
-      router.push("/signin");
+      router.push("/dashboard/signin");
       // TODO: Please use snack to catch exception here
     }
   };
