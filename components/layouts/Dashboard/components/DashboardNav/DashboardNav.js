@@ -124,7 +124,7 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
             ) : null}
 
             <DashboardNavMenu
-              href="/messages"
+              href="/dashboard/messages"
               icon={IconMessage}
               label="Message"
               // notifications={2}
@@ -149,7 +149,7 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
             ) : null}
 
             <DashboardNavMenu
-              href="/settings"
+              href="/dashboard/settings"
               icon={IconSettings}
               label="Settings"
               onClick={onClose}

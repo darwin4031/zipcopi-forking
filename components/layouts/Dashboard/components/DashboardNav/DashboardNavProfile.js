@@ -15,7 +15,7 @@ const DashboardNavProfile = () => {
   }
 
   return auth ? (
-    <Link href={`/user/${auth.id}`}>
+    <Link href={`/dashboard/user/${auth.id}`}>
       <a className={styles.root}>
         <div className={styles.Profile}>
           <div className={styles.ProfileAvatar}>
