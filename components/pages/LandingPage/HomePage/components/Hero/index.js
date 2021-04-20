@@ -23,7 +23,7 @@ const Hero = () => {
                   className={styles.hero__actionBtn}
                   variant="white"
                   label="Find me a copywriter"
-                  href="/signup?role=client"
+                  href="/dashboard/signup?role=client"
                 />
               </div>
               <div className={styles.hero__actionCol}>
@@ -31,7 +31,7 @@ const Hero = () => {
                   className={styles.hero__actionBtn}
                   variant="white-secondary"
                   label="I am a copywriter"
-                  href="/signup?role=writer"
+                  href="/dashboard/signup?role=writer"
                 />
               </div>
             </div>

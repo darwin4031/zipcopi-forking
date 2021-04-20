@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Controller, useForm, useFormState, useWatch } from "react-hook-form";
 import * as yup from "yup";
 import Button from "~components/elements/Button";
@@ -47,6 +47,7 @@ const schema = yup.object().shape({
 
 const SignUp = () => {
   const router = useRouter();
+  console.log(router.query);
   const { setAuth } = useContext(AuthContext);
   const [isSuccessPopup, setSuccessPopup] = useState(false);
   const [agree, setAgree] = useState(false);
@@ -69,6 +70,13 @@ const SignUp = () => {
     defaultValue: "",
   });
 
+  useEffect(() => {
+    if (router?.query?.role) {
+      if (router.query.role === "client" || router.query.role === "writer") {
+        setRole(router.query.role);
+      }
+    }
+  }, [router.query]);
   const onSubmit = async (data) => {
     if (!agree) {
       setAgreeError({ message: "Please check this option!" });

@@ -1,0 +1,27 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.popupBox {
+  composes: popupBox from "../SignUp/index.module.scss";
+}
+
+.popupContent {
+  composes: popupContent from "../SignUp/index.module.scss";
+}
+
+.popupLogin {
+  composes: popupLogin from "../SignUp/index.module.scss";
+}
+
+.body {
+  margin-top: 16px;
+}
+
+.actions {
+  display: flex;
+  margin-top: 24px;
+
+  &__col:not(:nth-child(1)) {
+    margin-left: 8px;
+  }
+}

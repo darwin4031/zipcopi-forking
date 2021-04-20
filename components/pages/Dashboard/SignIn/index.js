@@ -147,7 +147,7 @@ const SignIn = () => {
               <div className={styles.signinCheckbox}>
                 <Checkbox>Remember me</Checkbox>
               </div>
-              <GeneralLink href="/forgot-password">Forgot password?</GeneralLink>
+              <GeneralLink href="/dashboard/forgot-password">Forgot password?</GeneralLink>
             </div>
             <Button label="Sign In" isLoading={isSubmitting} onClick={handleSubmit(onSubmit)} />
             <AuthUiFormFieldsAlternate>

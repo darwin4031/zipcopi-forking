@@ -34,7 +34,7 @@ const CTA = () => {
         expertise to deliver to the highest level.
       </div>
       <LinkedButton
-        href="/signup"
+        href="/dashboard/signup"
         className={styles.cta__btn}
         label="Get Started"
         variant="white"

@@ -11,7 +11,7 @@ const CreateAccountCTA = () => {
             <div className={styles.create__title}>Create your account today?</div>
             <div className={styles.create__action}>
               <LinkedButton
-                href="/signup"
+                href="/dashboard/signup"
                 className={styles.create__actionBtn}
                 label="Get Started"
                 variant="white"
