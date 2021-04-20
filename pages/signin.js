@@ -1,18 +1,18 @@
 import Head from "next/head";
 import AuthChecker from "~components/elements/AuthChecker";
 import MainNavbar from "~components/layouts/components/MainNavbar";
-import SignUpComponent from "~components/pages/Dashboard/SignUp";
+import SignInComponent from "~components/pages/SignIn";
 
-const SignUp = () => {
+const SignIn = () => {
   return (
     <AuthChecker isPublic>
       <Head>
-        <title>Zipcopi - SignUp</title>
+        <title>Zipcopi - Signin</title>
       </Head>
       <MainNavbar />
-      <SignUpComponent />
+      <SignInComponent />
     </AuthChecker>
   );
 };
 
-export default SignUp;
+export default SignIn;

@@ -34,7 +34,7 @@ const PopupChildSuccess = () => {
         account!}
       </p>
 
-      <Link href="/dashboard/signin">
+      <Link href="/signin">
         <a className={styles.popupLogin}>Signin</a>
       </Link>
     </>

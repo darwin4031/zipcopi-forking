@@ -68,7 +68,7 @@ const SetPassword = () => {
     }
   };
   const onClosePopup = () => {
-    router.push("/dashboard/signin");
+    setOpenPopup(false);
   };
 
   return (

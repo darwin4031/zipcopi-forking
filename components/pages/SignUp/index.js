@@ -47,7 +47,6 @@ const schema = yup.object().shape({
 
 const SignUp = () => {
   const router = useRouter();
-  console.log(router.query);
   const { setAuth } = useContext(AuthContext);
   const [isSuccessPopup, setSuccessPopup] = useState(false);
   const [agree, setAgree] = useState(false);
@@ -116,7 +115,7 @@ const SignUp = () => {
       setAuth(resProfile.data);
       router.push("/dashboard");
     } catch (e) {
-      router.push("/dashboard/signin");
+      router.push("/signin");
       // TODO: Please use snack to catch exception here
     }
   };
@@ -281,7 +280,7 @@ const SignUp = () => {
         <p className={styles.popupContent}>
           Your account has been created, now please check your email to get the verification code!
         </p>
-        <Link href={`/dashboard/verify?email=${encodeURIComponent(email)}`}>
+        <Link href={`/verify?email=${encodeURIComponent(email)}`}>
           <a className={styles.popupLogin}>Verify</a>
         </Link>
       </Popup>

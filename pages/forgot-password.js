@@ -1,18 +1,18 @@
 import Head from "next/head";
 import AuthChecker from "~components/elements/AuthChecker";
 import MainNavbar from "~components/layouts/components/MainNavbar";
-import SignInComponent from "~components/pages/Dashboard/SignIn";
+import ForgotPasswordComponent from "~components/pages/ForgotPassword";
 
-const SignIn = () => {
+const ForgotPassword = () => {
   return (
     <AuthChecker isPublic>
       <Head>
-        <title>Zipcopi - Signin</title>
+        <title>Zipcopi - Reset Password</title>
       </Head>
       <MainNavbar />
-      <SignInComponent />
+      <ForgotPasswordComponent />
     </AuthChecker>
   );
 };
 
-export default SignIn;
+export default ForgotPassword;

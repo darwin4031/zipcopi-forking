@@ -31,7 +31,7 @@ const Item = ({ icon, name, content, useLottie = null }) => {
         <div className={styles.item__name}>{name}</div>
         <div className={styles.item__content}>{content}</div>
         <div className={styles.item__actions}>
-          <GeneralLink className={styles.item__link} href="/dashboard/signup">
+          <GeneralLink className={styles.item__link} href="/signup">
             Learn more
           </GeneralLink>
         </div>

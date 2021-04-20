@@ -42,7 +42,7 @@ const DashboardSearchbar = ({ withFilter, onClickHamburger, onClickFilter }) => 
     setLoggingOut(false);
     setPopupLogout(false);
     setAuth(undefined);
-    router.push("/dashboard/signin");
+    router.push("/signin");
   };
 
   return (

@@ -94,7 +94,7 @@ const SignIn = () => {
     const uri =
       process.env.NODE_ENV === "production"
         ? `${window.location.origin}/authentication/linkedin-signin`
-        : "http://localhost:3000/authentication/linkedin-callback-signin";
+        : "http://localhost:3000/authentication/linkedin-signin";
     const oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&scope=r_liteprofile%20r_emailaddress&state=1234as56&redirect_uri=${uri}`;
     router.push(oauthUrl);
   };
@@ -147,12 +147,12 @@ const SignIn = () => {
               <div className={styles.signinCheckbox}>
                 <Checkbox>Remember me</Checkbox>
               </div>
-              <GeneralLink href="/dashboard/forgot-password">Forgot password?</GeneralLink>
+              <GeneralLink href="/forgot-password">Forgot password?</GeneralLink>
             </div>
             <Button label="Sign In" isLoading={isSubmitting} onClick={handleSubmit(onSubmit)} />
             <AuthUiFormFieldsAlternate>
               Don’t have an account?
-              <GeneralLink href="/dashboard/signup">Sign up now</GeneralLink>
+              <GeneralLink href="/signup">Sign up now</GeneralLink>
             </AuthUiFormFieldsAlternate>
           </AuthUiFormFields>
         </AuthUiForm>

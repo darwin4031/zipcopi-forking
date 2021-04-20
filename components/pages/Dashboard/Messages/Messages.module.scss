@@ -1,0 +1,116 @@
+@import "@/styles/abstracts/_breakpoints.scss";
+@import "@/styles/abstracts/_variables.scss";
+
+.root {
+    composes: root from "../Project/Project.module.scss";
+    height: calc(100vh - #{$navbar-height});
+
+    @include breakpoint-down(xs) {
+        min-height: 0;
+        height: calc(100vh - #{$navbar-height + $BottomNavbar-height});
+    }
+
+    &.isOpenMessage {
+        .flex {
+            @include breakpoint-down(xs) {
+                transform: translateX(-100%);
+            }
+        }
+    }
+}
+
+.box {
+    composes: box from "../Project/Project.module.scss";
+    padding: 40px 0px 0px 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    @include breakpoint-down(xs) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.flex {
+    display: flex;
+    transition: transform $transition-primary;
+
+    & > * {
+        width: 50%;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        &:nth-last-child(1) {
+            padding-right: 0;
+        }
+
+        @include breakpoint-down(xs) {
+            width: 100%;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.header {
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    @include breakpoint-down(xs) {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+}
+
+.messageId {
+    display: none;
+
+    @include breakpoint-down(xs) {
+        display: block;
+    }
+}
+
+.body {
+    composes: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    // flex-basis: 1%;
+    height: 1%;
+    // margin-top: 16px;
+    // overflow: hidden;
+    // height: 100%;
+
+    @include breakpoint-down(xs) {
+        margin-top: 0;
+    }
+}
+
+.list {
+    height: 100%;
+    overflow: auto;
+    border-right: 2px solid $color-bg-OrderNewPremium;
+}
+
+.messagesBox.messagesBox {
+    @include breakpoint-down(xs) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.empty {
+    composes: empty from "./MessagesBox.module.scss";
+}
+
+.empty.empty {
+    width: 100%;
+}
+
+.emptyIcon {
+    composes: emptyIcon from "./MessagesBox.module.scss";
+}
+
+.emptyText {
+    composes: emptyText from "./MessagesBox.module.scss";
+}

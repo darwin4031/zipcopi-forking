@@ -33,10 +33,10 @@ const Navbar = ({ className }) => {
 
             <div className={styles.ButtonWrapper}>
               <div className={styles.ButtonCol}>
-                <LinkedButton href="/dashboard/signin" label="Sign In" />
+                <LinkedButton href="/signin" label="Sign In" />
               </div>
               <div className={styles.ButtonCol}>
-                <LinkedButton href="/dashboard/signup" label="Sign Up" variant="primary" />
+                <LinkedButton href="/signup" label="Sign Up" variant="primary" />
               </div>
             </div>
 

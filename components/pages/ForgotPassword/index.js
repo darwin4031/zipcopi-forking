@@ -38,7 +38,7 @@ const ForgotPassword = () => {
     try {
       await axios.post("/auth/reset-password/", {
         email: data.email,
-        redirect_url: `${window.location.origin}/dashboard/set-password`,
+        redirect_url: `${window.location.origin}/set-password`,
       });
       setSuccessScreen(true);
     } catch (err) {
@@ -103,7 +103,7 @@ const ForgotPassword = () => {
                 <Button label="Try again" variant="secondary" onClick={onTryAgain} />
               </div>
               <div className={styles.actions__col}>
-                <LinkedButton href="/dashboard/signin" label="Back to login" variant="primary" />
+                <LinkedButton href="/signin" label="Back to login" variant="primary" />
               </div>
             </div>
           </div>

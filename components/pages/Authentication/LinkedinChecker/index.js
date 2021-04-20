@@ -33,7 +33,7 @@ function Progress() {
         setAuth(resProfile.data);
         router.push("/dashboard");
       } catch (e) {
-        router.push("/dashboard/signin");
+        router.push("/signin");
         // TODO: Please use snack to catch exception here
       }
     };
@@ -41,7 +41,7 @@ function Progress() {
     if (window !== undefined) {
       const { code, state } = queryString.parse(window.location.search);
       if (code === undefined && state === undefined) {
-        router.push("/dashboard/signin");
+        router.push("/signin");
       } else {
         get_token(code, state);
       }

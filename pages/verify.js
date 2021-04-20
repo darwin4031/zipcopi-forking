@@ -1,7 +1,7 @@
 import Head from "next/head";
 import AuthChecker from "~components/elements/AuthChecker";
 import MainNavbar from "~components/layouts/components/MainNavbar";
-import VerifyComponent from "~components/pages/Dashboard/Verify";
+import VerifyComponent from "~components/pages/Verify";
 
 const Verify = () => {
   return (
