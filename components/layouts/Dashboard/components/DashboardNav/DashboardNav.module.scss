@@ -1,6 +1,11 @@
 @import "~styles/abstracts/_breakpoints.scss";
 @import "~styles/abstracts/_variables.scss";
 
+.verificationChecking {
+  color: $color-text-light;
+  padding: 8px;
+}
+
 .DashboardNav {
     position: fixed;
     top: 0;

@@ -1,0 +1,8 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.container {
+  display: grid;
+  place-items: center;
+  margin-top: 148px;
+}

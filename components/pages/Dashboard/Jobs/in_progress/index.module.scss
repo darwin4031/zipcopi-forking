@@ -6,8 +6,13 @@
 }
 
 .wrapper {
-  padding: 50px 30px;
+  padding:0;
+
+  &.withPadding {
+    padding: 50px 30px;
+  }
 }
+
 
 
 .body {

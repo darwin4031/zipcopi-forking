@@ -1,15 +1,15 @@
 import AuthChecker from "~components/elements/AuthChecker";
 import DashboardLayout from "~components/layouts/Dashboard";
-import Home from "~components/pages/Dashboard/Home";
+import ProfileCompletion from "~components/pages/Dashboard/ProfileCompletion";
 
-const ProfileCompletion = () => {
+const ProfileCompletionPage = () => {
   return (
     <AuthChecker>
       <DashboardLayout>
-        <Home />
+        <ProfileCompletion />
       </DashboardLayout>
     </AuthChecker>
   );
 };
 
-export default ProfileCompletion;
+export default ProfileCompletionPage;

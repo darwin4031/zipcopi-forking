@@ -17,7 +17,7 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
   const { auth } = useContext(AuthContext);
   const isRoleWriter = auth?.role === "writer";
   const isRoleClient = auth?.role === "client";
-
+  console.log(auth);
   const isJobUrl = checkActiveUrl({ href: "/dashboard/jobs/" });
 
   const boxRef = useRef();
@@ -34,14 +34,16 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
 
         <div className={styles.DashboardNavBody}>
           <div className={styles.DashboardNavMenuWrapper}>
-            {isRoleWriter && !auth?.writerdetail?.is_verfied ? (
+            {isRoleWriter && auth?.writerdetail?.verified_status === "unverified" ? (
               <DashboardNavMenu
-                href="dashboard/profile-completion"
+                href="/dashboard/profile-completion"
                 icon={IconProfileCompletion}
                 label="Complete Profile"
                 exact={true}
                 onClick={onClose}
               />
+            ) : isRoleWriter && auth?.writerdetail?.verified_status === "checking" ? (
+              <span className={styles.verificationChecking}>Verification in progress</span>
             ) : null}
 
             <DashboardNavMenu

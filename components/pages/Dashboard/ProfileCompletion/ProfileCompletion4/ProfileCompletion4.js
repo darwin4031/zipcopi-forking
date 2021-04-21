@@ -1,11 +1,11 @@
 import axios from "axios";
 import clsx from "clsx";
 import { useContext, useState } from "react";
-import Button, { ButtonIcon, ButtonText } from "~components/Button/Button";
+import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
 import IconChevronLeft from "~components/svg/icon-chevron-left.svg";
-import TextField from "~components/TextField/TextField";
-import Timer from "~components/Timer/Timer";
-import { AuthContext } from "~context/AuthContext";
+import TextField from "~components/elements/TextFieldLegacy";
+import Timer from "~components/elements/Timer";
+import { AuthContext } from "~context/auth";
 import countWordsLeft from "~utils/countWordsLeft";
 import fieldStateRevalidate from "~utils/fieldStateRevalidate";
 import profileStyles from "../ProfileCompletion.module.scss";
@@ -22,8 +22,6 @@ const ProfileCompletion4 = ({ onNextStep, onBackStep }) => {
   const [fieldState, setFieldState] = useState(initFieldState);
   const [errorState, setErrorState] = useState(initFieldState);
   const [isLoading, setLoading] = useState(false);
-  const [wordsLeft, setWordsLeft] = useState(200);
-  const [timeLeft, setTimeLeft] = useState(60 * 60);
 
   const onChangeField = (key, val) => {
     setErrorState({ ...errorState, [key]: validateField(key, val) });
@@ -44,7 +42,7 @@ const ProfileCompletion4 = ({ onNextStep, onBackStep }) => {
     if (!isError) {
       setLoading(true);
       axios
-        .post(`/writers/${auth.user_id}/verification/`, {
+        .post(`/writers/${auth.id}/verification/`, {
           essay: fieldState.essay,
         })
         .then((res) => {
@@ -53,6 +51,7 @@ const ProfileCompletion4 = ({ onNextStep, onBackStep }) => {
           onNextStep();
         })
         .catch((err) => {
+          console.log(err.response.data);
           console.error("verification", { err });
         });
     }

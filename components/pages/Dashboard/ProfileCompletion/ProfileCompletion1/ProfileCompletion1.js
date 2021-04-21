@@ -1,29 +1,28 @@
 import axios from "axios";
 import clsx from "clsx";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
 import IconCamera from "~components/svg/icon-camera.svg";
 import IconEdit from "~components/svg/icon-edit.svg";
-import TextField from "~components/TextField/TextField";
-import { AuthContext } from "~context/AuthContext";
+import TextField from "~components/elements/TextFieldLegacy";
+import { AuthContext } from "~context/auth";
 import fieldStateRevalidate from "~utils/fieldStateRevalidate";
 import ProfileCompletionAction from "../ProfileCompletionAction";
 import ProfileCompletionTitle from "../ProfileCompletionTitle";
 import styles from "./ProfileCompletion1.module.scss";
 
-const ProfileCompletion1 = ({ onNextStep, userData }) => {
+const ProfileCompletion1 = ({ onNextStep }) => {
   const { auth } = useContext(AuthContext);
-
   const [isEditingProfile, setEditingProfile] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [previewAvatar, setPreviewAvatar] = useState(userData?.detail?.avatar);
+  const [previewAvatar, setPreviewAvatar] = useState(auth?.writerdetail?.avatar);
   const [selectedPhoto, setSelectedPhoto] = useState();
 
   const initFieldState = {
-    first_name: userData.first_name,
-    last_name: userData.last_name,
-    email: userData.email,
-    registeredAddress: userData?.detail?.address ?? "",
+    first_name: auth.first_name,
+    last_name: auth.last_name,
+    email: auth.email,
+    registeredAddress: auth?.detail?.address ?? "",
   };
   const [fieldState, setFieldState] = useState(initFieldState);
 
@@ -62,7 +61,7 @@ const ProfileCompletion1 = ({ onNextStep, userData }) => {
     if (!file) return Promise.resolve();
 
     const formData = new FormData();
-    formData.append("avatar", file);
+    formData.append("detail.avatar", file);
 
     return axios
       .patch(`/writers/${userId}/`, formData, {
@@ -80,15 +79,13 @@ const ProfileCompletion1 = ({ onNextStep, userData }) => {
 
   const onContinue = () => {
     const { isError, newErrorState } = fieldStateRevalidate(fieldState, validateField);
-
     setErrorState(newErrorState);
-
     if (!isError) {
       setLoading(true);
 
       if (selectedPhoto) {
         // Update avatar if changed
-        postChangeAvatar(selectedPhoto, auth.user_id).then(() => {
+        postChangeAvatar(selectedPhoto, auth.id).then(() => {
           setLoading(false);
           onNextStep({
             first_name: fieldState.first_name,
@@ -108,11 +105,6 @@ const ProfileCompletion1 = ({ onNextStep, userData }) => {
           },
         });
       }
-
-      // setTimeout(() => {
-      //   setLoading(false);
-      //   onNextStep();
-      // }, 2000);
     }
   };
 

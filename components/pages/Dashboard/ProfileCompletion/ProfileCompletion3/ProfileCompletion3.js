@@ -1,16 +1,16 @@
-import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
-import ErrorMessage from "~components/elements/ErrorMessage";
-import Radio from "~components/elements/Radio";
-import IconChevronLeft from "~components/svg/icon-chevron-left.svg";
-import TextField from "~components/TextField/TextField";
-import { AuthContext } from "~context/auth";
-import fieldStateRevalidate from "~utils/fieldStateRevalidate";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import profileStyles from "../ProfileCompletion.module.scss";
-import ProfileCompletionAction from "../ProfileCompletionAction";
-import ProfileCompletionTitle from "../ProfileCompletionTitle";
+import { useContext, useState } from "react";
 import styles from "./ProfileCompletion3.module.scss";
+import profileStyles from "../ProfileCompletion.module.scss";
+import ProfileCompletionTitle from "../ProfileCompletionTitle";
+import ProfileCompletionAction from "../ProfileCompletionAction";
+import fieldStateRevalidate from "~utils/fieldStateRevalidate";
+import Radio from "~components/elements/Radio";
+import axios from "axios";
+import { AuthContext } from "~context/auth";
+import TextField from "~components/elements/TextFieldLegacy";
+import ErrorMessage from "~components/elements/ErrorMessage";
+import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
+import IconChevronLeft from "~components/svg/icon-chevron-left.svg";
 
 const langOptions = [
   { value: 1, label: "Lang A" },
@@ -28,36 +28,24 @@ const radioMapper = {
   "Native or Bilingual": { value: 4, label: "Native or Bilingual" },
 };
 
-const ProfileCompletion3 = ({ onNextStep, userData, onBackStep }) => {
+const ProfileCompletion3 = ({ onNextStep, onBackStep }) => {
   const { auth } = useContext(AuthContext);
 
-  const initLanguage =
-    userData?.languages?.length > 0
-      ? userData.languages.map(() => ({
-          languages: x.languages,
-          proficiency: radioMapper[x.proficiency],
-        }))
-      : [
-          {
-            // This is a singular lang, why not `language`? it's in the API
-            languages: "",
-            proficiency: null,
-          },
-        ];
+  const initLanguage = [
+    {
+      // This is a singular lang, why not `language`? it's in the API
+      languages: "",
+      proficiency: null,
+    },
+  ];
 
-  const initLanguageError =
-    userData?.languages?.length > 0
-      ? userData.languages.map(() => ({
-          languages: null,
-          proficiency: null,
-        }))
-      : [
-          {
-            // This is a singular lang, why not `language`? it's in the API
-            languages: null,
-            proficiency: null,
-          },
-        ];
+  const initLanguageError = [
+    {
+      // This is a singular lang, why not `language`? it's in the API
+      languages: null,
+      proficiency: null,
+    },
+  ];
 
   const [languages, setLanguages] = useState(initLanguage);
   const [languagesError, setLanguagesError] = useState(initLanguageError);
@@ -90,21 +78,20 @@ const ProfileCompletion3 = ({ onNextStep, userData, onBackStep }) => {
     });
 
     setLanguagesError(newLanguagesError);
-
+    console.log(languages);
     //--prod console.log({ isAnyError, newLanguagesError });
 
     if (!isAnyError) {
       setLoading(true);
       const data = languages.map((lang, i) => {
         return {
-          writer: auth.user_id,
-          languages: lang.languages,
+          language: lang.languages,
           proficiency: lang.proficiency.label,
         };
       });
 
       const promises = Promise.all(
-        data.map((x) => axios.post(`/writers/${auth.user_id}/languages/`, x))
+        data.map((x) => axios.post(`/writers/${auth.id}/languages/`, x))
       );
 
       //--prod console.log({ data });
@@ -121,26 +108,12 @@ const ProfileCompletion3 = ({ onNextStep, userData, onBackStep }) => {
         .finally(() => {
           setLoading(false);
         });
-
-      // axios
-      //   .post(`/writer/${userId}/languages/`, {})
-      //   .then((res) => {
-      //     //--prod console.log({ res });
-      //   })
-      //   .catch((err) => {
-      //     console.error({ err });
-      //   });
-
-      // setTimeout(() => {
-      //   setLoading(false);
-      //   // onNextStep();
-      // }, 2000);
     }
   };
 
   const onAddLanguage = () => {
-    setLanguages([...languages, initLanguage]);
-    setLanguagesError([...languagesError, initLanguageError]);
+    setLanguages([...languages, initLanguage[0]]);
+    setLanguagesError([...languagesError, initLanguageError[0]]);
   };
 
   const onDeleteLanguage = () => {
@@ -218,30 +191,6 @@ const ProfileCompletion3 = ({ onNextStep, userData, onBackStep }) => {
         ) : null}
       </div>
 
-      {/* <TextField
-        className={styles.field}
-        label="Add another language"
-        placeholder="Select another language"
-        value={fieldState.otherLang}
-        options={langOptions}
-        stateKey="otherLang"
-        onChange={onChangeField}
-      />
-
-      <Radio
-        name="proficiency"
-        onChange={(val) => onChangeField("otherLangproficiency", val)}
-        value={fieldState.otherLangproficiency}
-        className={styles.radioFlex}
-        labelClassName={styles.radioCol}
-        options={[
-          { value: 1, label: "Basic" },
-          { value: 2, label: "Fluent" },
-          { value: 3, label: "Conversational" },
-          { value: 4, label: "Native or Bilingual" },
-        ]}
-      /> */}
-
       <ProfileCompletionAction
         onContinue={onContinue}
         onCompleteLater={onNextStep}
@@ -250,28 +199,5 @@ const ProfileCompletion3 = ({ onNextStep, userData, onBackStep }) => {
     </div>
   );
 };
-
-function useLanguages() {
-  const [data, setData] = useState();
-  const [isFetching, setFetching] = useState(true);
-  const { auth } = useContext(AuthContext);
-
-  const fetchLanguages = () => {
-    axios
-      .get(`/writer/${auth.user_id}/languages/`)
-      .then((res) => {
-        //--prod console.log({ res });
-      })
-      .catch((err) => {
-        console.error({ err });
-      });
-  };
-
-  useEffect(() => {
-    fetchLanguages();
-  }, []);
-
-  return { isFetching, data };
-}
 
 export default ProfileCompletion3;

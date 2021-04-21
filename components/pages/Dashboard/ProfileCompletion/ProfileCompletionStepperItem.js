@@ -15,11 +15,7 @@ const ProfileCompletionStepperItem = ({
 }) => {
   return (
     <div
-      className={clsx(
-        styles.item,
-        tc(styles.isActive, isActive),
-        tc(styles.isCompleted, isCompleted)
-      )}
+      className={clsx(styles.item, isActive && styles.isActive, isCompleted && styles.isCompleted)}
     >
       {isFirstItem ? (
         <Start className={clsx(styles.itemSvg, styles.itemBefore)} />

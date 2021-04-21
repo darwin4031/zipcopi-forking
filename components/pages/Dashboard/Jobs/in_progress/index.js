@@ -6,16 +6,16 @@ import { AuthContext } from "~context/auth";
 import { fetcher, maybe } from "~utils/index";
 import JobCard from "../_components/JobCard";
 import styles from "./index.module.scss";
-
+import clsx from "clsx";
 const status = {
   client: ["place_order", "place_quote", "review", "revising", "writing", "pending_payment"],
   writer: ["review", "revising", "writing", "pending_payment"],
 };
 
-const Base = ({ data = [] }) => {
+const Base = ({ data = [], withPadding }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={clsx(styles.wrapper, withPadding && styles.withPadding)}>
         <div className={styles.body}>
           {data.length === 0 ? (
             <EmptyJob />
@@ -32,7 +32,7 @@ const Base = ({ data = [] }) => {
   );
 };
 
-const JobInProgress = () => {
+const JobInProgress = ({ withPadding }) => {
   const { auth } = useContext(AuthContext);
   const role = auth.role;
   const userId = auth.id;
@@ -42,7 +42,7 @@ const JobInProgress = () => {
   );
   const data = maybe(() => rawData.results, []);
   if (!rawData) return <LoadingWrapper />;
-  return <Base data={data} />;
+  return <Base data={data} withPadding={withPadding} />;
 };
 
 export default JobInProgress;

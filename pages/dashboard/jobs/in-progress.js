@@ -10,7 +10,7 @@ const InProgress = () => {
         <title>Zipcopi - In Progress Jobs</title>
       </Head>
       <DashboardLayout>
-        <JobInProgress />
+        <JobInProgress withPadding />
       </DashboardLayout>
     </AuthChecker>
   );
