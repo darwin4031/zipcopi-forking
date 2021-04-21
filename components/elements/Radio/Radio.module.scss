@@ -1,0 +1,37 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.radioItem {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &.isSelected {
+        .radioIndicator::after {
+            opacity: 1;
+        }
+    }
+}
+
+.radioIndicator {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+    border-radius: 50%;
+    border: 1px solid mix($color-primary, $color-logo-gray);
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 12px;
+        width: 12px;
+        transition: $transition-primary;
+        opacity: 0;
+        border-radius: 50%;
+        background-color: $color-primary;
+    }
+}

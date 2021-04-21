@@ -1,0 +1,397 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+$local-sidebar-width: 360px;
+$local-sidebar-margin: 24px;
+$local-sidebar: $local-sidebar-width + $local-sidebar-margin;
+$local-gutter: 6px;
+
+.root {
+  padding: 24px;
+
+  @include breakpoint-down(xs) {
+    padding: 0;
+    min-height: calc(100vh - #{$navbar-height} - #{$BottomNavbar-height});
+    background-color: $color-light;
+  }
+}
+
+.box {
+  width: 1100px;
+  max-width: 100%;
+  margin: auto;
+  padding: 24px 32px;
+  border-radius: 10px;
+  background-color: $color-light;
+
+  @include breakpoint-down(xs) {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    border-radius: 0;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.body {
+  width: calc(100% - #{$local-sidebar});
+
+  @include breakpoint-down(lg) {
+    width: 100%;
+  }
+
+  @include breakpoint-down(xs) {
+    margin: 16px;
+  }
+}
+
+.bodyTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favoriteBtn {
+  flex-shrink: 0;
+  color: $color-text-lighter;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($color-error, 0.1);
+  }
+
+  &.isFavorite {
+    color: $color-error;
+  }
+}
+
+.title {
+  margin: 16px 0;
+  font-size: 24px;
+  color: lighten($color-text-dark, 10);
+}
+
+.sidebar {
+  width: 360px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding: 16px;
+  margin-left: 24px;
+  border-radius: 10px;
+  background-color: $color-bg-OrderNewPremium;
+
+  @include breakpoint-down(lg) {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 24px;
+  }
+
+  @include breakpoint-down(xs) {
+    border-radius: 0;
+  }
+}
+
+// Temporary disabled
+// .sidebarActions {
+//     @include breakpoint-down(xs) {
+//         display: none;
+//     }
+// }
+
+.sidebarBtn {
+  width: 100%;
+  display: block;
+
+  &:not(:nth-child(1)) {
+    margin-top: 16px;
+  }
+}
+
+.sidebarBtnReport {
+  width: auto;
+  display: table;
+  padding: 8px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  color: $color-primary;
+}
+
+.sidebarDivider {
+  height: 1px;
+  margin: 16px 0;
+  background-color: rgba($color-text-placeholder, 0.7);
+
+  &:nth-child(1) {
+    display: none;
+  }
+}
+
+.sidebarFlex {
+  $local-gutter: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: (0 - $local-gutter);
+  margin-top: (24px - $local-gutter);
+
+  & > * {
+    padding: $local-gutter;
+  }
+
+  *:nth-child(1) .sidebarValue {
+    color: $color-primary;
+  }
+
+  *:nth-child(2) .sidebarValue {
+    color: $color-text-lighter;
+  }
+}
+
+.sidebarInfoTitle {
+  margin: 0;
+  font-size: 18px;
+  color: lighten($color-text-dark, 10);
+}
+
+.sidebarInfoSubtitle {
+  margin: 8px 0;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: lighten($color-text-dark, 10);
+}
+
+.sidebarLabel {
+  color: lighten($color-text-dark, 10);
+}
+
+.sidebarValue {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebarValueIcon {
+  margin-right: 8px;
+
+  svg {
+    display: block;
+    height: 16px;
+
+    path {
+      fill: currentColor;
+    }
+  }
+}
+
+.sidebarClient {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.sidebarClientTitle {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.sidebarClientName,
+.sidebarClientWeb {
+  margin-bottom: 4px;
+  color: lighten($color-text-dark, 20);
+}
+
+.sidebarBrief {
+  margin-top: 32px;
+}
+
+.sidebarBriefSubject.sidebarBriefSubject {
+  font-size: 12px;
+}
+
+.sidebarBriefContent.sidebarBriefContent {
+  margin-top: 8px;
+}
+
+.sidebarBottom {
+  margin-top: 48px;
+}
+
+.sidebarBottomBtn {
+  width: 100%;
+}
+
+// Temporary disabled
+// .mobileActions {
+//     position: sticky;
+//     bottom: $BottomNavbar-height;
+//     width: 100%;
+//     padding: 10px 16px;
+//     box-shadow: 0 -6px 16px 0 rgba($color-black, 0.1);
+//     border-radius: 10px 10px 0 0;
+//     background-color: $color-light;
+
+//     display: none;
+
+//     @include breakpoint-down(xs) {
+//         display: block;
+//     }
+
+//     .mobileActionsBtn {
+//         width: 100%;
+//     }
+// }
+
+.sidebarAmends {
+  &__item {
+    padding: 8px 0;
+  }
+
+  &__inner {
+    padding: 12px;
+    border-radius: 4px;
+    background-color: $color-light;
+  }
+
+  &__status {
+    display: table;
+    padding: 4px 8px;
+    letter-spacing: 0.1em;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50px;
+    color: $color-error;
+    background-color: rgba($color-error, 0.2);
+  }
+
+  &__content {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  &__done#{&}__done {
+    padding: 8px 16px;
+    margin-top: 16px;
+  }
+
+  &__item.isDone &__status {
+    color: $color-primary;
+    background-color: rgba($color-primary, 0.2);
+  }
+}
+
+.Item {
+  display: flex;
+  height: 100%;
+  padding: 12px;
+  transition: $transition-primary;
+  box-shadow: 0 4px 8px 0 rgba($color-black, 0.07);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background-color: $color-light;
+
+  &:hover,
+  &:focus {
+    border-color: $color-primary;
+  }
+}
+
+.ItemIcon {
+}
+
+.ItemSvg {
+  display: block;
+  height: 56px;
+}
+
+.ItemBody {
+  margin-left: 24px;
+}
+
+.ItemTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ItemBrief {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: $color-text-lightest;
+}
+
+.ItemGroupWrapper {
+  $local-gutter: 8px;
+  margin: (0 - $local-gutter);
+  margin-top: (10px - $local-gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  & > * {
+    margin: $local-gutter;
+  }
+}
+
+.GroupItem {
+  display: flex;
+  align-items: center;
+}
+
+.GroupItemText {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.GroupItemIcon {
+  margin-right: 4px;
+}
+
+.GroupItemSvg {
+  height: 16px;
+  display: block;
+}
+
+.WordCount {
+  color: $color-text-lightest;
+
+  .GroupItemSvg > * {
+    fill: currentColor;
+  }
+}
+
+.Tag {
+  margin: $local-gutter;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  color: $color-text-FilterSortOption;
+  background-color: $color-bg-FilterSelectionItem;
+
+  &.Status {
+    text-transform: capitalize;
+    color: $color-text-light;
+    background-color: $color-warning;
+  }
+
+  &.isGreen {
+    color: $color-text-light;
+    background-color: $color-success;
+  }
+
+  &.isRed {
+    color: $color-text-light;
+    background-color: $color-error;
+  }
+
+  &.Price {
+    color: $color-text-light;
+    background-color: $color-blue;
+  }
+}

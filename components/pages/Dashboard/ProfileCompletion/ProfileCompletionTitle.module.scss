@@ -1,0 +1,10 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.title {
+    margin-top: 32px;
+    font-weight: 700;
+    font-size: 14px;
+    display: table;
+    color: $color-primary;
+}

@@ -1,12 +1,12 @@
 import AuthChecker from "~components/elements/AuthChecker";
 import DashboardLayout from "~components/layouts/Dashboard";
-import Home from "~components/pages/Dashboard/Home";
+import UserDetail from "~components/pages/Dashboard/User/detail";
 
 const User = () => {
   return (
     <AuthChecker>
       <DashboardLayout>
-        <Home />
+        <UserDetail />
       </DashboardLayout>
     </AuthChecker>
   );

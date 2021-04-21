@@ -2,12 +2,14 @@ import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { useRouter } from "next/router";
 import queryString from "query-string";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import styles from "./index.module.scss";
+import { AuthContext } from "~context/auth";
 
 function Progress() {
   const router = useRouter();
   const { pathname } = router;
+  const { setAuth } = useContext(AuthContext);
 
   useEffect(() => {
     const get_token = async (code, state) => {
@@ -29,6 +31,7 @@ function Progress() {
           role,
         });
         localStorage.setItem("token", JSON.stringify(res.data));
+        // get profile and save to context
         const resProfile = await axios.get("/auth/profile/");
         setAuth(resProfile.data);
         router.push("/dashboard");

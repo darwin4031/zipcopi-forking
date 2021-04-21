@@ -1,0 +1,18 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.header {
+}
+
+.headerTitle {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.headerSubtitle {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: normal;
+    color: $color-text-FilterSortOption;
+}

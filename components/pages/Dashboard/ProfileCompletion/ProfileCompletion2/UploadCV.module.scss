@@ -1,0 +1,59 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.upload {
+    composes: Button from "~components/elements/Button/index.module.scss";
+    padding: 8px;
+    color: $color-primary;
+}
+
+.preview {
+    display: table;
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba($color-primary, 0.1);
+}
+
+.preview .previewCloseBtn {
+    margin-right: 0;
+    margin-left: auto;
+    height: 26px;
+    width: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: $color-text-light;
+    background-color: $color-error;
+
+    &:hover,
+    &:focus {
+        background-color: darken($color-error, 10);
+    }
+
+    svg {
+        display: block;
+        height: 18px;
+    }
+}
+
+.previewIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        height: 56px;
+        display: block;
+    }
+}
+
+.previewName {
+    margin-top: 6px;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

@@ -1,0 +1,44 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.field {
+    composes: field from "../ProfileCompletion.module.scss";
+    font-size: 14px;
+}
+
+.profileCompletionBoxEdge {
+    composes: profileCompletionBoxEdge from "../ProfileCompletion.module.scss";
+    margin-top: 10px;
+    font-size: 14px;
+    background-color: $color-primary;
+}
+
+.instruction {
+    padding: 16px 0;
+    line-height: 1.4;
+    color: $color-text-light;
+}
+
+.infoWrapper {
+    margin-top: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: 600;
+    color: $color-text-light;
+    background-color: $color-logo-gray;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infoTimer {
+    display: flex;
+    align-items: center;
+}
+
+.infoTimerComp {
+    margin-left: 8px;
+}

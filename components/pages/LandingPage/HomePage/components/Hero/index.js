@@ -31,7 +31,7 @@ const Hero = () => {
                   className={styles.hero__actionBtn}
                   variant="white-secondary"
                   label="I am a copywriter"
-                  href="/signup?role=writer"
+                  href="/writers"
                 />
               </div>
             </div>

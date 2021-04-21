@@ -1,0 +1,15 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.stepperOverflow {
+    composes: profileCompletionBoxEdge from "./ProfileCompletion.module.scss";
+    overflow: hidden;
+}
+
+.stepper {
+    transition: $transition-primary;
+}
+
+.stepperInner {
+    display: inline-flex;
+}

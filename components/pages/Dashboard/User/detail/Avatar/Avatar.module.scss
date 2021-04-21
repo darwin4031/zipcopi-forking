@@ -1,0 +1,15 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.preview {
+    display: block;
+    margin: auto;
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.popup.popup.popup {
+    width: 450px;
+}

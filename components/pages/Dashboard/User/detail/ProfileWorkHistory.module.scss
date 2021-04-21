@@ -1,0 +1,44 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    display: flex;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $color-border-adminBox;
+    margin-top: 8px;
+}
+
+.main {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.header {
+    display: flex;
+}
+
+.title {
+}
+
+.type {
+    margin-left: 8px;
+    color: $color-primary;
+}
+
+.description {
+    margin-top: 4px;
+}
+
+.year {
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: $color-primary-1;
+}
+
+.actionEdit {
+    flex-grow: 0;
+    flex-shrink: 0;
+    color: $color-primary;
+}

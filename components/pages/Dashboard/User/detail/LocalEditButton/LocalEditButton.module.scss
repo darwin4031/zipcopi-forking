@@ -1,0 +1,15 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.editBtn.editBtn {
+    color: $color-primary;
+
+    &:not(:nth-child(1)) {
+        margin-left: 4px;
+    }
+
+    .editBtnIcon.editBtnIcon {
+        height: 24px;
+        width: 24px;
+    }
+}

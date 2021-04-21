@@ -1,0 +1,44 @@
+@import "@/styles/abstracts/_breakpoints.scss";
+@import "@/styles/abstracts/_variables.scss";
+
+.root {
+}
+
+.box {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba($color-black, 0.07);
+    background-color: $color-light;
+}
+
+.button {
+    display: block;
+    font-size: 14px;
+
+    &:not(:nth-child(1)) {
+        margin-top: 16px;
+    }
+}
+
+.checkboxIndicator.checkboxIndicator {
+    height: 1.4em;
+    width: 1.4em;
+    transform: translateY(-2px);
+    border-color: $color-text-lightest;
+}
+
+.checkSvgClassName {
+    height: 1em;
+}
+
+.checkboxWrapper.checkboxWrapper {
+    display: flex;
+    align-items: unset;
+    text-align: left;
+}
+
+.generalLink {
+    display: inline-block;
+    margin-top: 16px;
+    font-weight: 600;
+}

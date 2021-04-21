@@ -1,0 +1,20 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.action {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.actionContinue {
+    height: 56px;
+    width: 340px;
+    max-width: 100%;
+}
+
+.actionLater {
+    padding: 8px 16px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: $color-primary;
+}

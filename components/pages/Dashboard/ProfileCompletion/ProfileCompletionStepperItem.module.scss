@@ -1,0 +1,107 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+$local-arrow-width: 20px;
+$local-pixel-leak: 1px;
+$local-arrow-minus: 4px;
+
+// To bring all the arrow closer together
+$local-arrow-tied: 3px;
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 140px;
+    max-width: 50%;
+    text-align: center;
+    padding-left: $local-arrow-width;
+    padding-right: $local-arrow-width;
+
+    margin-left: (0 - $local-arrow-tied);
+    margin-right: (0 - $local-arrow-tied);
+
+    &:nth-child(1) {
+        margin-left: 0;
+
+        .itemTitle {
+            border-radius: 4px 0 0 4px;
+        }
+    }
+
+    &:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    &.isActive {
+        .itemTitle {
+            color: $color-primary;
+        }
+
+        .itemSvg path:nth-child(1) {
+            fill: lighten($color-primary, 42);
+        }
+
+        .itemSvg path:nth-child(2) {
+            fill: $color-primary;
+        }
+    }
+
+    &.isCompleted {
+        .itemTitle {
+            color: $color-text-light;
+        }
+
+        .itemSvg path:nth-child(1),
+        .itemSvg path:nth-child(2) {
+            fill: $color-primary;
+        }
+    }
+}
+
+.itemTitle {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-text-FilterSortOption;
+}
+
+.itemSvg {
+    position: absolute;
+    width: $local-arrow-width;
+    top: 0;
+    height: 52px;
+    display: block;
+    color: rgba($color-primary, 0.1);
+
+    path:nth-child(1) {
+        fill: transparent;
+    }
+
+    path:nth-child(2) {
+        fill: lighten($color-black, 80);
+    }
+}
+
+.itemSvg {
+    left: 0;
+}
+
+.itemCenter {
+    width: calc(100% - #{($local-arrow-width - $local-pixel-leak) * 2});
+    left: $local-arrow-width - $local-pixel-leak;
+    right: $local-arrow-width - $local-pixel-leak;
+}
+
+.itemAfter {
+    left: unset;
+    right: 0;
+}

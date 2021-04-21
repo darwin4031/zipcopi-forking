@@ -55,6 +55,8 @@ const Navbar = ({ className }) => {
         <NavbarLink href="/pricing">Pricing</NavbarLink>
         <NavbarLink href="/about">About</NavbarLink>
         <NavbarLink href="/contact">Contact</NavbarLink>
+        <NavbarLink href="/signin">Signin</NavbarLink>
+        <NavbarLink href="/signup">Signup</NavbarLink>
       </NavbarSide>
     </>
   );

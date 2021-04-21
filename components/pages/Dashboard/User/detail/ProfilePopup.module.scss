@@ -1,0 +1,34 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.editPopupBox.editPopupBox {
+    width: 650px;
+    padding: 24px;
+}
+
+.editTitle {
+    text-align: center;
+    font-weight: 700;
+}
+
+.editForm {
+    margin-top: 24px;
+}
+
+.editActions {
+    $local-gutter: 8px;
+    margin: (0 - $local-gutter);
+    margin-top: (24px - $local-gutter);
+    display: flex;
+    align-items: center;
+
+    & > * {
+        width: 50%;
+        padding: $local-gutter;
+    }
+}
+
+.editActionsBtn.editActionsBtn {
+    width: 100%;
+    height: 56px;
+}

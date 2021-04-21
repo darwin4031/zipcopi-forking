@@ -1,15 +1,15 @@
 import AuthChecker from "~components/elements/AuthChecker";
 import DashboardLayout from "~components/layouts/Dashboard";
-import Home from "~components/pages/Dashboard/Home";
+import Settings from "~components/pages/Dashboard/Settings";
 
-const Settings = () => {
+const SettingsPage = () => {
   return (
     <AuthChecker>
       <DashboardLayout>
-        <Home />
+        <Settings />
       </DashboardLayout>
     </AuthChecker>
   );
 };
 
-export default Settings;
+export default SettingsPage;

@@ -1,0 +1,333 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.root {
+    composes: root from "./root.module.scss";
+}
+
+.box {
+    composes: box from "./root.module.scss";
+}
+
+.flex {
+    composes: flex from "./root.module.scss";
+}
+
+.body {
+    composes: body from "./root.module.scss";
+    // flex-grow: 1;
+    // flex-shrink: 1;
+    // height: 280px;
+    padding-top: 24px;
+    // background-color: red;
+}
+
+.avatar {
+    composes: avatar from "../ProfileCompletion/ProfileCompletion1/ProfileCompletion1.module.scss";
+    display: table;
+    margin: auto;
+    margin-top: 0;
+    position: relative;
+
+    img {
+        height: 86px;
+        width: 86px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.avatarIcon {
+    composes: avatarIcon from "../ProfileCompletion/ProfileCompletion1/ProfileCompletion1.module.scss";
+    border: 2px solid $color-light;
+}
+
+.avatarSvg {
+    composes: avatarSvg from "../ProfileCompletion/ProfileCompletion1/ProfileCompletion1.module.scss";
+}
+
+.avatarPlaceholder {
+    height: 86px;
+    width: 86px;
+    border-radius: 50%;
+    background-color: $color-text-placeholder;
+}
+
+.username {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.location {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.about {
+    margin-top: 32px;
+}
+
+.aboutTitle {
+    font-weight: 700;
+}
+
+.aboutContent {
+    composes: content from "../Project/ProjectBrief.module.scss";
+    margin-top: 10px;
+    font-size: 16px;
+    color: lighten($color-text-dark, 10);
+}
+
+.workHistory,
+.experiences,
+.type,
+.writing {
+    margin-top: 32px;
+}
+
+.workHistoryTitle,
+.experiencesTitle,
+.typeTitle,
+.writingTitle {
+    composes: aboutTitle;
+}
+
+.workHistoryList,
+.writingList,
+.typeList,
+.experiencesList {
+    margin-top: 8px;
+}
+
+.experiencesList,
+.writingList {
+    $local-gutter: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: (0 - $local-gutter);
+    margin-top: (10px - $local-gutter);
+
+    & > div {
+        padding: $local-gutter;
+    }
+}
+
+.experiencesItem,
+.writingItem {
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    color: $color-light;
+    background-color: $color-blue;
+}
+
+.writingItem {
+    color: $color-text-lighter;
+    background-color: $color-bg-FilterSelectionItem;
+}
+
+// Sidebar
+// ----------------------------------------------------------------------------
+.wrapperSidebar {
+    composes: sidebar from "./root.module.scss";
+}
+
+.sidebar {
+}
+
+.sidebarActions {
+}
+
+.sidebarActionsHire {
+    composes: sidebarBtn from "./root.module.scss";
+}
+
+.sidebarActionsReport {
+    composes: sidebarBtnReport from "./root.module.scss";
+}
+
+.sidebarDivider {
+    composes: sidebarDivider from "./root.module.scss";
+}
+
+.sidebarInfo {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.sidebarInfoItem {
+    flex-shrink: 1;
+    flex-grow: 1;
+
+    width: (1 / 3 * 100%);
+    text-align: center;
+}
+
+.sidebarInfoTitle {
+    font-size: 12px;
+    letter-spacing: 0.01em;
+}
+
+.sidebarInfoValue {
+    margin-top: 4px;
+    font-weight: 700;
+}
+
+.sidebarInfoDivider {
+    width: 1px;
+    height: auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: rgba($color-text-placeholder, 0.7);
+}
+
+.sidebarLanguages,
+.sidebarFeedbacks {
+    margin-top: 30px;
+}
+
+.sidebarLanguagesTitle,
+.sidebarFeedbacksTitle {
+    composes: aboutTitle;
+    margin-bottom: 20px;
+}
+
+.sidebarStatus {
+    display: flex;
+}
+
+.sidebarStatus,
+.sidebarAddress {
+    &:not(:nth-child(1)) {
+        margin-top: 24px;
+    }
+}
+
+.sidebarStatusTitle,
+.sidebarEmailTitle {
+    composes: aboutTitle;
+}
+
+.sidebarEmailAction,
+.sidebarPaymentAction {
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.sidebarEmailTitle {
+    display: flex;
+    align-items: center;
+}
+
+.sidebarEmailSvg {
+    height: 28px;
+    width: 28px;
+    margin-left: 8px;
+    display: block;
+}
+
+.sidebarAddressTitle {
+    composes: aboutTitle;
+}
+
+.sidebarAddressContent {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.sidebarFeedbacksEmpty.sidebarFeedbacksEmpty.sidebarFeedbacksEmpty {
+    margin-top: -8px;
+}
+
+// Language
+// ----------------------------------------------------------------------------
+.language {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.languageBody {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+}
+
+.languageName {
+    margin-right: 8px;
+}
+
+.languageAction {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.languageEditIcon {
+    path {
+        fill: $color-primary;
+    }
+}
+
+// Feedback
+// ----------------------------------------------------------------------------
+.feedback {
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: $color-light;
+}
+
+.feedbackTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-logo-gray;
+}
+
+.feedbackMiddle {
+    display: flex;
+    align-items: center;
+}
+
+.feedbackDate {
+    margin-left: 8px;
+    font-size: 12px;
+    color: $color-blue-light;
+}
+
+.feedbackContent {
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.clientInfo {
+    width: 400px;
+    justify-content: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.empty {
+    margin-top: 8px;
+    font-size: 14px;
+    font-style: italic;
+    color: $color-text-lightest;
+}
+
+.editBtn.editBtn {
+    color: $color-primary;
+
+    &:not(:nth-child(1)) {
+        margin-left: 4px;
+    }
+
+    .editBtnIcon.editBtnIcon {
+        height: 24px;
+        width: 24px;
+    }
+}
