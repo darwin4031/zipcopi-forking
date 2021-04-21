@@ -1,8 +1,8 @@
-@import "@/styles/abstracts/_breakpoints.scss";
-@import "@/styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
 
 .root {
-    composes: root from "../Project/Project.module.scss";
+    composes: root from "../Jobs/root.module.scss";
     height: calc(100vh - #{$navbar-height});
 
     @include breakpoint-down(xs) {
@@ -20,7 +20,7 @@
 }
 
 .box {
-    composes: box from "../Project/Project.module.scss";
+    composes: box from "../Jobs/root.module.scss";
     padding: 40px 0px 0px 0px;
     height: 100%;
     display: flex;

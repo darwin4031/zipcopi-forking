@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./MessagesChat.module.scss";
-import { format } from "date-fns";
 import clsx from "clsx";
+import dayjs from "dayjs";
 
 /**
  * MessagesChat
@@ -14,17 +13,11 @@ import clsx from "clsx";
  */
 const MessagesChat = ({ date, name, message, userId, currentUserId }) => {
   return (
-    <div
-      className={clsx(styles.root, userId === currentUserId && styles.isMine)}
-    >
+    <div className={clsx(styles.root, userId === currentUserId && styles.isMine)}>
       <div className={styles.top}>
-        <div className={styles.name}>
-          {userId === currentUserId ? "You" : name}
-        </div>
+        <div className={styles.name}>{userId === currentUserId ? "You" : name}</div>
         {date ? (
-          <div className={styles.date}>
-            {format(new Date(date + "Z"), "MMM dd - HH:mm")}
-          </div>
+          <div className={styles.date}>{dayjs(date + "Z").format("MMM DD - HH:mm")}</div>
         ) : null}
       </div>
       <div className={styles.message}>{message}</div>

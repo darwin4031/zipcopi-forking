@@ -1,15 +1,15 @@
 import AuthChecker from "~components/elements/AuthChecker";
 import DashboardLayout from "~components/layouts/Dashboard";
-import Home from "~components/pages/Dashboard/Home";
+import Messages from "~components/pages/Dashboard/Messages";
 
-const Messages = () => {
+const MessagesPage = () => {
   return (
     <AuthChecker>
       <DashboardLayout>
-        <Home />
+        <Messages />
       </DashboardLayout>
     </AuthChecker>
   );
 };
 
-export default Messages;
+export default MessagesPage;

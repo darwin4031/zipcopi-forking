@@ -8,7 +8,7 @@ import ClientHomePage from "./ClientHomePage";
 
 const Client = () => {
   const { auth } = useContext(AuthContext);
-  const { data } = useSWR(`/clients/${auth.id}/jobs/`, fetcher);
+  const { data } = useSWR(`/clients/${auth?.id}/jobs/`, fetcher);
   const jobs = maybe(() => data.results, []);
   if (!data) {
     return <LoadingWrapper />;

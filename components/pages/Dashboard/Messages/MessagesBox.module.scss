@@ -1,5 +1,5 @@
-@import "@/styles/abstracts/_breakpoints.scss";
-@import "@/styles/abstracts/_variables.scss";
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
 
 .root {
     height: 100%;
@@ -81,7 +81,7 @@
     }
 
     &__textarea {
-        composes: textarea from "../TextField/TextField.module.scss";
+        composes: textarea from "~components/elements/TextFieldLegacy/TextField.module.scss";
         height: (28px + 8px + 8px);
         resize: none;
         min-height: 0;

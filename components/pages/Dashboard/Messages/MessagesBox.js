@@ -1,19 +1,14 @@
-import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
+import { useContext, useState } from "react";
+import Button, { ButtonIcon } from "~components/elements/Button";
+import LoadingWrapper from "~components/elements/LoadingWrapper";
+import IconMessage from "~components/svg/icon-message.svg";
+import IconSend from "~components/svg/icon-send.svg";
+import { AuthContext } from "~context/auth";
 import styles from "./MessagesBox.module.scss";
-import IconMessage from "@/components/Svg/icon-message.svg";
 import MessagesChat from "./MessagesChat";
-import Button, { ButtonIcon } from "@/components/Button/Button";
-import IconSend from "@/components/Svg/icon-send.svg";
-import { AuthContext } from "@/context/AuthContext";
-import WholeLoading from "../WholeLoading";
-import { LoadingWrapper } from "../Dashboard/Dashboard";
 
-const MessagesBox = ({
-  isLoading,
-  messages,
-  onSendMessage: propOnSendMessage,
-}) => {
+const MessagesBox = ({ isLoading, messages, onSendMessage: propOnSendMessage }) => {
   const router = useRouter();
   const { auth } = useContext(AuthContext);
   const roomId = router.query.id;
@@ -43,7 +38,7 @@ const MessagesBox = ({
                     date={item.created_at}
                     name={`${item.user.first_name} ${item.user.last_name}`}
                     message={item.message}
-                    currentUserId={auth.user_id}
+                    currentUserId={auth.id}
                   />
                 ))
               ) : (
@@ -53,8 +48,7 @@ const MessagesBox = ({
                       <IconMessage />
                     </div>
                     <div className={styles.emptyText}>
-                      This room doesn't have message yet, Let's start a new
-                      message!
+                      This room doesn't have message yet, Let's start a new message!
                     </div>
                   </div>
                 </div>
@@ -86,9 +80,7 @@ const MessagesBox = ({
             <div className={styles.emptyIcon}>
               <IconMessage />
             </div>
-            <div className={styles.emptyText}>
-              Click on a message to open it
-            </div>
+            <div className={styles.emptyText}>Click on a message to open it</div>
           </div>
         </div>
       )}

@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
 import styles from "./MessagesItem.module.scss";
-import IconChevronRight from "@/components/Svg/icon-chevron-right.svg";
-import { format } from "date-fns";
+import IconChevronRight from "~components/svg/icon-chevron-right.svg";
 import clsx from "clsx";
+import dayjs from "dayjs";
 
 const MessagesItem = ({ date, name, content, isActive, onClick }) => {
   return (
@@ -17,6 +16,7 @@ const MessagesItem = ({ date, name, content, isActive, onClick }) => {
         <div className={styles.body}>
           {date ? (
             <div className={styles.date}>
+              {dayjs(date + "Z").format("MMM DD HH:mm")}
               {format(new Date(date + "Z"), "MMM dd HH:mm")}
             </div>
           ) : null}

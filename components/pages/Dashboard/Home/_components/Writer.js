@@ -8,7 +8,7 @@ import WriterHomePage from "./WriterHomePage";
 
 const Writer = () => {
   const { auth } = useContext(AuthContext);
-  const { data } = useSWR(`/writers/${auth.id}/jobs/`, fetcher);
+  const { data } = useSWR(`/writers/${auth?.id}/jobs/`, fetcher);
   const jobs = maybe(() => data.results, []);
   if (!data) {
     return <LoadingWrapper />;

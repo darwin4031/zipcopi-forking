@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import { H3 } from "@/components/Heading/Heading";
+import { useContext, useEffect, useState } from "react";
+import { H3 } from "~components/elements/Heading";
 import styles from "./Messages.module.scss";
 import MessagesItem from "./MessagesItem";
 import { useRouter } from "next/router";
 import MessagesBox from "./MessagesBox";
 import clsx from "clsx";
 import axios from "axios";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "~context/auth";
 import { usePrevious } from "react-use";
-import WholeLoading from "../WholeLoading";
-import { LoadingWrapper } from "../Dashboard/Dashboard";
 import useWebSocket from "react-use-websocket";
-import IconMessage from "@/components/Svg/icon-message.svg";
+import IconMessage from "~components/svg/icon-message.svg";
+import LoadingWrapper from "~components/elements/LoadingWrapper";
 
 const Messages = () => {
   const router = useRouter();
@@ -83,9 +82,7 @@ const Messages = () => {
     <div className={clsx(styles.root, isOpenedRoom && styles.isOpenMessage)}>
       <div className={styles.box}>
         {isFetchingRooms ? (
-          <LoadingWrapper usePercentage>
-            <WholeLoading />
-          </LoadingWrapper>
+          <LoadingWrapper usePercentage />
         ) : roomsData && roomsData.length > 0 ? (
           <>
             <div className={clsx(styles.flex, styles.header)}>
@@ -99,7 +96,7 @@ const Messages = () => {
                     key={i}
                     date={val.last_message?.created_at}
                     name={getParticipantsName({
-                      currentUserId: auth.user_id,
+                      currentUserId: auth.id,
                       participants: val.participants,
                     })}
                     content={val.last_message?.message}
