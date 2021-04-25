@@ -4,7 +4,8 @@ import { useContext, useState } from "react";
 import { mutate } from "swr";
 import Button from "~components/elements/Button";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
 import JobAmendHistories from "../_components/JobAmendHistories";
 import JobDetails from "../_components/JobDetails";
@@ -54,7 +55,7 @@ const JobRevising = ({ data }) => {
         <JobWriterWorkHistories jobId={data.id} />
       </div>
       <div className={jobDetailStyles.sidebar}>
-        {auth.role === "client" ? (
+        {auth?.role === "client" ? (
           <div className={jobDetailStyles.status}>Being Revised</div>
         ) : (
           <JobAmend amend={data.active_amend} jobId={data.id} />

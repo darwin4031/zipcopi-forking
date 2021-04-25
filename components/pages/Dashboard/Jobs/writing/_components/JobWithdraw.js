@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import useOpen from "~hooks/useOpen";
 import Button from "~components/elements/Button";
 import ConfirmationPopup from "~components/elements/ConfirmationPopup";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import useOpen from "~hooks/useOpen";
 import styles from "./JobWithdraw.module.scss";
 
 const JobWithdraw = ({ data }) => {

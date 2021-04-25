@@ -38,7 +38,7 @@ const MessagesBox = ({ isLoading, messages, onSendMessage: propOnSendMessage }) 
                     date={item.created_at}
                     name={`${item.user.first_name} ${item.user.last_name}`}
                     message={item.message}
-                    currentUserId={auth.id}
+                    currentUserId={auth?.id}
                   />
                 ))
               ) : (

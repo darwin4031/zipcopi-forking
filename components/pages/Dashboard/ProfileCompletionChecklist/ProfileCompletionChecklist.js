@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import mc from "@/utils/mergeClassName";
 import { useRouter } from "next/router";
+import React, { useContext } from "react";
 import Checkbox from "../Checkbox/Checkbox";
-import GeneralLink from "../GeneralLink/GeneralLink";
 import styles from "./ProfileCompletionChecklist.module.scss";
 
 const ACTIONS = {
@@ -20,19 +19,18 @@ const ProfileCompletionChecklist = () => {
     {
       action: ACTIONS.uploadProfilePic,
       label: "Upload profile picture",
-      isChecked: auth.completed_profile_detail.hasAvatar,
+      isChecked: auth?.completed_profile_detail.hasAvatar,
     },
     {
       action: ACTIONS.uploadCV,
       label: "Select writing and premium type",
       isChecked:
-        auth.completed_profile_detail.hasJobType &&
-        auth.completed_profile_detail.hasPremiumType,
+        auth?.completed_profile_detail.hasJobType && auth?.completed_profile_detail.hasPremiumType,
     },
     {
       action: ACTIONS.completeVerificationTest,
       label: "Complete Verification Test",
-      isChecked: auth.completed_profile_detail.hasSubmitedEssay,
+      isChecked: auth?.completed_profile_detail.hasSubmitedEssay,
     },
   ];
 

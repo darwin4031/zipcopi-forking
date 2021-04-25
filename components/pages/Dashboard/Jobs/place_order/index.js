@@ -5,10 +5,11 @@ import { useContext, useState } from "react";
 import { mutate } from "swr";
 import Button from "~components/elements/Button";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
-import JobDetails from "../_components/JobDetails";
 import JobDescription from "../_components/JobDescription";
+import JobDetails from "../_components/JobDetails";
 
 const JobWriterButton = ({ id }) => {
   const router = useRouter();
@@ -57,7 +58,7 @@ const JobPlaceOrder = ({ data }) => {
         <JobDescription data={data} />
       </div>
       <div className={jobDetailStyles.sidebar}>
-        {auth.role === "writer" ? (
+        {auth?.role === "writer" ? (
           <JobWriterButton id={id} />
         ) : (
           <div className={jobDetailStyles.status}>Waiting for the writer</div>

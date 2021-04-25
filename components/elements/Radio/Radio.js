@@ -1,5 +1,5 @@
-import styles from "./Radio.module.scss";
 import clsx from "clsx";
+import styles from "./Radio.module.scss";
 
 const Radio = ({
   name,

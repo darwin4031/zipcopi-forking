@@ -1,12 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Controller, useForm, useFormState } from "react-hook-form";
 import * as yup from "yup";
 import Button from "~components/elements/Button";
 import { H4 } from "~components/elements/Heading";
-
 import Popup from "~components/elements/Popup";
 import TextField from "~components/elements/TextField";
 import {
@@ -20,7 +19,7 @@ import styles from "./index.module.scss";
 const schema = yup.object().shape({
   password: yup
     .string()
-    .min(8, { message: "Password must be 8 characters long." })
+    .min(8, "Password must be 8 characters long.")
     .matches(/(?=.*[0-9])/, { message: "Invalid password. Must contain one number." })
     .required("Please fill this field!"),
   confirm_password: yup
@@ -54,14 +53,21 @@ const SetPassword = () => {
         content: "Your password has been updated, now you can login with the new password!",
       });
     } catch (err) {
-      console.error("onSubmitForm - reset", { err, res: err.response.data });
-      if (err?.response?.data && err.response.data.token) {
-        setPopupState({ title: "Error", content: err.response.data.token });
-      } else {
-        setPopupState({
-          title: "Error",
-          content: "Something went wrong, please try again!",
-        });
+      const errData = err?.response?.data;
+      if (errData) {
+        if (err.response.data.token) {
+          setPopupState({ title: "Error", content: err.response.data.token });
+        } else if (err.response.data.non_field_errors) {
+          setPopupState({
+            title: "Error",
+            content: err.response.data.non_field_errors[0],
+          });
+        } else {
+          setPopupState({
+            title: "Error",
+            content: "Something went wrong, please try again!",
+          });
+        }
       }
     } finally {
       setOpenPopup(true);

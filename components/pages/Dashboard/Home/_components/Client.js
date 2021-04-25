@@ -1,10 +1,10 @@
 import { useContext } from "react";
+import useSWR from "swr";
+import LoadingWrapper from "~components/elements/LoadingWrapper";
 import { AuthContext } from "~context/auth";
 import { fetcher, maybe } from "~utils/index";
-import EmptyJobClient from "./EmptyJobClient";
-import LoadingWrapper from "~components/elements/LoadingWrapper";
-import useSWR from "swr";
 import ClientHomePage from "./ClientHomePage";
+import EmptyJobClient from "./EmptyJobClient";
 
 const Client = () => {
   const { auth } = useContext(AuthContext);

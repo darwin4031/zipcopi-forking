@@ -2,11 +2,11 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import useSWR from "swr";
 import AvatarCard from "~components/elements/AvatarCard";
+import Popup from "~components/elements/Popup";
 import IconSearch from "~components/svg/icon-search.svg";
 import { fetcher, maybe } from "~utils/index";
 import Button from "../../../../elements/Button";
 import styles from "./JobWriterWorks.module.scss";
-import Popup from "~components/elements/Popup";
 import WriterWork from "./WriterWork";
 
 const JobWriterWorkHistories = ({ jobId }) => {

@@ -1,5 +1,5 @@
-import { Fragment } from "react";
 import dayjs from "dayjs";
+import { Fragment } from "react";
 import styles from "./BillingHistoryTable.module.scss";
 
 function BillingHistoryTable({ bills }) {

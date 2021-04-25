@@ -1,5 +1,5 @@
-import Button from "~components/elements/Button";
 import React from "react";
+import Button from "~components/elements/Button";
 import styles from "./ProfileCompletionAction.module.scss";
 
 const ProfileCompletionAction = ({

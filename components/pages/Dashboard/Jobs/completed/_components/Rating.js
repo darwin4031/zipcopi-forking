@@ -11,7 +11,7 @@ const Rating = ({ job_rate }) => {
   return (
     <div>
       <div className={styles.title}>
-        {`${auth.role === "client" ? "Writer's" : "Client's"} Feedback to you`}
+        {`${auth?.role === "client" ? "Writer's" : "Client's"} Feedback to you`}
       </div>
       <div className={styles.stars}>
         <Stars rate={rate} />

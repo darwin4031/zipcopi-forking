@@ -2,9 +2,9 @@ import axios from "axios";
 import clsx from "clsx";
 import { useContext, useState } from "react";
 import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
+import TextField from "~components/elements/TextFieldLegacy";
 import IconCamera from "~components/svg/icon-camera.svg";
 import IconEdit from "~components/svg/icon-edit.svg";
-import TextField from "~components/elements/TextFieldLegacy";
 import { AuthContext } from "~context/auth";
 import fieldStateRevalidate from "~utils/fieldStateRevalidate";
 import ProfileCompletionAction from "../ProfileCompletionAction";
@@ -19,9 +19,9 @@ const ProfileCompletion1 = ({ onNextStep }) => {
   const [selectedPhoto, setSelectedPhoto] = useState();
 
   const initFieldState = {
-    first_name: auth.first_name,
-    last_name: auth.last_name,
-    email: auth.email,
+    first_name: auth?.first_name,
+    last_name: auth?.last_name,
+    email: auth?.email,
     registeredAddress: auth?.detail?.address ?? "",
   };
   const [fieldState, setFieldState] = useState(initFieldState);
@@ -85,7 +85,7 @@ const ProfileCompletion1 = ({ onNextStep }) => {
 
       if (selectedPhoto) {
         // Update avatar if changed
-        postChangeAvatar(selectedPhoto, auth.id).then(() => {
+        postChangeAvatar(selectedPhoto, auth?.id).then(() => {
           setLoading(false);
           onNextStep({
             first_name: fieldState.first_name,

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import DatePicker from "~components/elements/DatePicker";
+import React, { useState } from "react";
 import Button from "~components/elements/Button";
-import { H3 } from "~components/elements/Heading";
+import DatePicker from "~components/elements/DatePicker";
 import Filter from "~components/elements/Filter";
+import { H3 } from "~components/elements/Heading";
 import IconSlider from "~components/svg/icon-slider.svg";
 import { maybe } from "~utils/index";
-import useBillingHistories from "./useBillingHistories";
 
 import styles from "./BillingHistory.module.scss";
 import BillingHistoryTable from "./BillingHistoryTable";
+import useBillingHistories from "./useBillingHistories";
 
 function BillingHistory({}) {
   const [showFilters, setShowFilters] = useState(false);

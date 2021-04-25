@@ -1,7 +1,7 @@
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import axios from "axios";
 import { mutate } from "swr";
 import styles from "./Paypal.module.scss";
-import axios from "axios";
 
 const initialOptions = {
   "client-id": process.env.PAYPAL_CLIENT_ID,

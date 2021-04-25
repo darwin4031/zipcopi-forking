@@ -15,7 +15,7 @@ const DashboardNavProfile = () => {
   }
 
   return auth ? (
-    <Link href={`/dashboard/user/${auth.id}`}>
+    <Link href={`/dashboard/user/${auth?.id}`}>
       <a className={styles.root}>
         <div className={styles.Profile}>
           <div className={styles.ProfileAvatar}>
@@ -23,9 +23,9 @@ const DashboardNavProfile = () => {
           </div>
           <div className={styles.ProfileInfo}>
             <div className={styles.ProfileName}>
-              {auth.first_name} {auth.last_name}
+              {auth?.first_name} {auth?.last_name}
             </div>
-            <div className={styles.ProfileEmail}>{auth.email}</div>
+            <div className={styles.ProfileEmail}>{auth?.email}</div>
           </div>
         </div>
       </a>

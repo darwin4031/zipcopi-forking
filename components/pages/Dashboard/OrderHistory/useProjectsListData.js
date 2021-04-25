@@ -1,8 +1,7 @@
-import { AuthContext } from "~context/auth";
-
 // Types definitions
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "~context/auth";
 
 /**
  * @typedef {Object} Type_useProjectsListData
@@ -22,7 +21,8 @@ function useProjectsListData() {
   const { auth } = useContext(AuthContext);
 
   function fetchProjectListData() {
-    const url = auth.role === "client" ? `/clients/${auth.id}/jobs/` : `/writers/${auth.id}/jobs/`;
+    const url =
+      auth?.role === "client" ? `/clients/${auth?.id}/jobs/` : `/writers/${auth?.id}/jobs/`;
 
     if (!isLoading) {
       setLoading(true);

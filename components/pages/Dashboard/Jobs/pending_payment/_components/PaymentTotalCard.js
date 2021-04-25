@@ -1,4 +1,3 @@
-import Button from "~components/elements/Button";
 import dayjs from "dayjs";
 import styles from "./PaymentTotalCard.module.scss";
 

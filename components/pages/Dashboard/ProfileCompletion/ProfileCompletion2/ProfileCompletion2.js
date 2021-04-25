@@ -64,7 +64,7 @@ const ProfileCompletion2 = ({ onNextStep, accumulateData, userData, onBackStep }
       accepted_jobs,
       industry_experiences,
     };
-    patchUserData(auth.id, data).then(() => {
+    patchUserData(auth?.id, data).then(() => {
       setLoading(false);
       onNextStep();
     });

@@ -1,18 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+import { useRef, useState } from "react";
 import { useClickAway } from "react-use";
-import styles from "./Filter.module.scss";
 import Button, { ButtonIcon } from "~components/elements/Button";
 import IconClose from "~components/svg/icon-close.svg";
-import FilterSort from "./FilterSort";
-import FilterRange from "./FilterRange";
-import FilterType from "./FilterType";
-import FilterStatus from "./FilterStatus";
-import enumSortType from "./enumSortType";
-import { useRouter } from "next/router";
-import getKey from "~utils/getKey";
 import getTrueKeys from "~utils/getTrueKeys";
-import routerQueryToObjectKeys from "~utils/routerQueryToObjectKey";
-import clsx from "clsx";
+import styles from "./Filter.module.scss";
+import FilterSort from "./FilterSort";
+import FilterStatus from "./FilterStatus";
+import FilterType from "./FilterType";
 
 /**
  * Filter
@@ -20,31 +15,19 @@ import clsx from "clsx";
  * @param {Boolean} props.isOpen
  * @param {Function} props.onClose
  */
-const Filter = ({ isOpen, onClose = () => {} }) => {
-  const router = useRouter();
-  const role = router.query.role;
-
+const Filter = ({ isOpen, onClose, filters, setFilters, jobTypeOptions }) => {
   const boxRef = useRef();
   useClickAway(boxRef, () => onClose());
 
-  const initSortType = router.query.sortType || getKey(enumSortType.startDate, enumSortType);
-  const [sortType, setSortType] = useState(initSortType);
+  const [sortType, setSortType] = useState(filters.ordering);
   const onChangeSortType = (val) => setSortType(val);
 
-  let initSelectedRange = routerQueryToObjectKeys(router.query.range);
-  const [selectedRange, setSelectedRange] = useState(initSelectedRange);
-  const onRangeChange = ({ newSelectedItems }) => {
-    setSelectedRange(newSelectedItems);
-  };
-
-  let initSelectedType = routerQueryToObjectKeys(router.query.type);
-  const [selectedType, setSelectedType] = useState(initSelectedType);
+  const [selectedType, setSelectedType] = useState(filters.type__in);
   const onTypeChange = ({ newSelectedItems }) => {
     setSelectedType(newSelectedItems);
   };
 
-  let initSelectedStatus = routerQueryToObjectKeys(router.query.status);
-  const [selectedStatus, setSelectedStatus] = useState(initSelectedStatus);
+  const [selectedStatus, setSelectedStatus] = useState(filters.status__in);
   const onStatusChange = ({ newSelectedItems }) => {
     setSelectedStatus(newSelectedItems);
   };
@@ -52,28 +35,12 @@ const Filter = ({ isOpen, onClose = () => {} }) => {
   const [isLoading, setLoading] = useState(false);
   const onSubmit = () => {
     const data = {
-      sortType: sortType,
-      range: getTrueKeys(selectedRange),
-      type: getTrueKeys(selectedType),
-      status: getTrueKeys(selectedStatus),
+      ordering: sortType,
+      type__in: getTrueKeys(selectedType),
+      status__in: getTrueKeys(selectedStatus),
     };
-
-    //--prod console.log({ data });
-    setLoading(true);
-
-    router.push({ pathname: `/${role}/dashboard`, query: data }).then(() => {
-      onClose();
-      setLoading(false);
-    });
+    setFilters(data);
   };
-
-  useEffect(() => {
-    // Reset all the filter on cancel / on filter close
-    setSortType(initSortType);
-    setSelectedRange(initSelectedRange);
-    setSelectedType(initSelectedType);
-    setSelectedStatus(initSelectedStatus);
-  }, [isOpen]);
 
   return (
     <div className={clsx(styles.Filter, isOpen && styles.isOpen)}>
@@ -94,8 +61,12 @@ const Filter = ({ isOpen, onClose = () => {} }) => {
 
         <div className={styles.FilterBody}>
           <FilterSort value={sortType} onChange={onChangeSortType} isLoading={isLoading} />
-          <FilterRange value={selectedRange} onChange={onRangeChange} isLoading={isLoading} />
-          <FilterType value={selectedType} onChange={onTypeChange} isLoading={isLoading} />
+          <FilterType
+            value={selectedType}
+            onChange={onTypeChange}
+            isLoading={isLoading}
+            jobTypeOptions={jobTypeOptions}
+          />
           <FilterStatus value={selectedStatus} onChange={onStatusChange} isLoading={isLoading} />
           <div className={styles.FilterSubmitWrapper}>
             <Button

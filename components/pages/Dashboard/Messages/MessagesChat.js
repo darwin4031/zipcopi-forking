@@ -1,6 +1,6 @@
-import styles from "./MessagesChat.module.scss";
 import clsx from "clsx";
 import dayjs from "dayjs";
+import styles from "./MessagesChat.module.scss";
 
 /**
  * MessagesChat

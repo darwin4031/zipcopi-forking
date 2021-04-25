@@ -1,0 +1,14 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.FilterSelection {
+    $local-gutter: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: (0 - $local-gutter);
+    margin-top: (16px - $local-gutter);
+
+    & > * {
+        margin: $local-gutter;
+    }
+}

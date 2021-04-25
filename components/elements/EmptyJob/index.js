@@ -15,7 +15,7 @@ const EmptyJob = () => {
         </div>
         <div className={styles.emptyText}>You don't have any ongoing work yet</div>
         <div className={styles.emptyAction}>
-          {auth.role === "client" ? (
+          {auth?.role === "client" ? (
             <LinkedButton href="/dashboard/jobs/create" label="Create new job" variant="primary" />
           ) : (
             <LinkedButton href="/dashboard/jobs/feeds" label="Search a job" variant="primary" />

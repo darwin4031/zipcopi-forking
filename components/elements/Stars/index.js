@@ -1,6 +1,6 @@
-import styles from "./index.module.scss";
-import IconStar from "~components/svg/icon-star.svg";
 import clsx from "clsx";
+import IconStar from "~components/svg/icon-star.svg";
+import styles from "./index.module.scss";
 
 const Stars = ({ rate }) => {
   let output = [];

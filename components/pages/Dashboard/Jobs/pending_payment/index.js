@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
 import JobDescription from "../_components/JobDescription";
 import JobDetails from "../_components/JobDetails";
@@ -9,7 +10,7 @@ import Payment from "./_components/Payment";
 const JobPendingPayment = ({ data }) => {
   const { auth } = useContext(AuthContext);
 
-  return auth.role === "client" ? (
+  return auth?.role === "client" ? (
     <Payment data={data} />
   ) : (
     <JobDetailContainer>

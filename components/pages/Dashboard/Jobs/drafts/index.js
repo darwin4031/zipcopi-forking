@@ -29,7 +29,7 @@ const Base = ({ data = [] }) => {
 
 const JobDrafts = () => {
   const { auth } = useContext(AuthContext);
-  const userId = auth.id;
+  const userId = auth?.id;
   const { data: rawData } = useSWR([`/clients/${userId}/jobs/`, "draft"], (url, status) =>
     fetcher(url, { params: { status__in: status } })
   );

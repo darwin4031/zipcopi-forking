@@ -24,10 +24,10 @@ import {
 import IconFacebook from "~components/svg/icon-facebook.svg";
 import IconLinkedin from "~components/svg/icon-linkedin.svg";
 import IllustrationSignup from "~components/svg/illustration-signup.svg";
+import { AuthContext } from "~context/auth";
 import { setErrors } from "~utils/index";
 import styles from "./index.module.scss";
 import SignupRoleSelection from "./SignupRoleSelection";
-import { AuthContext } from "~context/auth";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("Please fill this field!"),

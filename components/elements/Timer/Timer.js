@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Timer Component

@@ -1,21 +1,45 @@
+import getKey from "~utils/getKey";
+import enumSortType from "./enumDateRange";
+import FilterOption from "./FilterOption";
+import styles from "./FilterSort.module.scss";
 import FilterTitle from "./FilterTitle";
-import FilterSelection from "./FilterSelection";
-import FilterSelectionItem from "./FilterSelectionItem";
-import enumDateRange from "./enumDateRange";
 
-const FilterRange = ({ onChange, value, isLoading }) => {
+const FilterSort = ({ onChange = (val) => {}, value, isLoading }) => {
   return (
-    <div>
+    <div className={styles.Sort}>
       <FilterTitle>Date Range</FilterTitle>
-      <FilterSelection name="dateRange" value={value} onChange={onChange} isLoading={isLoading}>
-        {Object.keys(enumDateRange).map((key) => (
-          <FilterSelectionItem key={key} stateKey={key}>
-            {enumDateRange[key]}
-          </FilterSelectionItem>
-        ))}
-      </FilterSelection>
+      <div className={styles.SortOptions}>
+        <FilterOption
+          stateKey={getKey(enumSortType.lastWeek, enumSortType)}
+          label="Last Week"
+          onChange={onChange}
+          currentState={value}
+          isLoading={isLoading}
+        />
+        <FilterOption
+          stateKey={getKey(enumSortType.thisMonth, enumSortType)}
+          label="This Month"
+          onChange={onChange}
+          currentState={value}
+          isLoading={isLoading}
+        />
+        <FilterOption
+          stateKey={getKey(enumSortType.lastMonth, enumSortType)}
+          label="Last Month"
+          onChange={onChange}
+          currentState={value}
+          isLoading={isLoading}
+        />
+        <FilterOption
+          stateKey={getKey(enumSortType.thisMonth, enumSortType)}
+          label="This Month"
+          onChange={onChange}
+          currentState={value}
+          isLoading={isLoading}
+        />
+      </div>
     </div>
   );
 };
 
-export default FilterRange;
+export default FilterSort;

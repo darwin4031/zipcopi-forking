@@ -17,7 +17,6 @@ const DashboardNav = ({ isOpen, onClose = () => {} }) => {
   const { auth } = useContext(AuthContext);
   const isRoleWriter = auth?.role === "writer";
   const isRoleClient = auth?.role === "client";
-  console.log(auth);
   const isJobUrl = checkActiveUrl({ href: "/dashboard/jobs/" });
 
   const boxRef = useRef();

@@ -1,16 +1,16 @@
-import { useContext, useEffect, useState } from "react";
-import { H3 } from "~components/elements/Heading";
-import styles from "./Messages.module.scss";
-import MessagesItem from "./MessagesItem";
-import { useRouter } from "next/router";
-import MessagesBox from "./MessagesBox";
-import clsx from "clsx";
 import axios from "axios";
-import { AuthContext } from "~context/auth";
+import clsx from "clsx";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import { usePrevious } from "react-use";
 import useWebSocket from "react-use-websocket";
-import IconMessage from "~components/svg/icon-message.svg";
+import { H3 } from "~components/elements/Heading";
 import LoadingWrapper from "~components/elements/LoadingWrapper";
+import IconMessage from "~components/svg/icon-message.svg";
+import { AuthContext } from "~context/auth";
+import styles from "./Messages.module.scss";
+import MessagesBox from "./MessagesBox";
+import MessagesItem from "./MessagesItem";
 
 const Messages = () => {
   const router = useRouter();
@@ -96,7 +96,7 @@ const Messages = () => {
                     key={i}
                     date={val.last_message?.created_at}
                     name={getParticipantsName({
-                      currentUserId: auth.id,
+                      currentUserId: auth?.id,
                       participants: val.participants,
                     })}
                     content={val.last_message?.message}
@@ -173,7 +173,6 @@ function useRoomMessages(roomId) {
     axios
       .get(`/rooms/${roomId}/messages/`)
       .then((res) => {
-        console.log("useRoomMessages", { messages: res.data.results, res });
         setData(res.data.results);
         setFetching(false);
       })

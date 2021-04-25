@@ -2,9 +2,9 @@ import axios from "axios";
 import clsx from "clsx";
 import { useContext, useState } from "react";
 import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
-import IconChevronLeft from "~components/svg/icon-chevron-left.svg";
 import TextField from "~components/elements/TextFieldLegacy";
 import Timer from "~components/elements/Timer";
+import IconChevronLeft from "~components/svg/icon-chevron-left.svg";
 import { AuthContext } from "~context/auth";
 import countWordsLeft from "~utils/countWordsLeft";
 import fieldStateRevalidate from "~utils/fieldStateRevalidate";
@@ -42,7 +42,7 @@ const ProfileCompletion4 = ({ onNextStep, onBackStep }) => {
     if (!isError) {
       setLoading(true);
       axios
-        .post(`/writers/${auth.id}/verification/`, {
+        .post(`/writers/${auth?.id}/verification/`, {
           essay: fieldState.essay,
         })
         .then((res) => {
@@ -51,7 +51,7 @@ const ProfileCompletion4 = ({ onNextStep, onBackStep }) => {
           onNextStep();
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.error(err.response.data);
           console.error("verification", { err });
         });
     }

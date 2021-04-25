@@ -1,7 +1,7 @@
-import styles from "./MessagesItem.module.scss";
-import IconChevronRight from "~components/svg/icon-chevron-right.svg";
 import clsx from "clsx";
 import dayjs from "dayjs";
+import IconChevronRight from "~components/svg/icon-chevron-right.svg";
+import styles from "./MessagesItem.module.scss";
 
 const MessagesItem = ({ date, name, content, isActive, onClick }) => {
   return (

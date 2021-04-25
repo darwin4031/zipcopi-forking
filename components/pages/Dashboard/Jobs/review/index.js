@@ -9,7 +9,8 @@ import Button from "~components/elements/Button";
 import Popup from "~components/elements/Popup";
 import TextField from "~components/elements/TextField";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import IconAmends from "~components/svg/icon-amend.svg";
 import { AuthContext } from "~context/auth";
 import JobDetails from "../_components/JobDetails";
@@ -138,7 +139,7 @@ const JobReview = ({ data }) => {
         <JobWriterWorkHistories jobId={data.id} />
       </div>
       <div className={jobDetailStyles.sidebar}>
-        {auth.role === "client" ? (
+        {auth?.role === "client" ? (
           <JobButton data={data} />
         ) : (
           <div className={jobDetailStyles.status}>Being reviewed</div>

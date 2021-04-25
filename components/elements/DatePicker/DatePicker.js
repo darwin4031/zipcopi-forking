@@ -1,9 +1,9 @@
-import styles from "./DatePicker.module.scss";
+import clsx from "clsx";
 import ReactDatePicker from "react-datepicker";
+import IconCalendar from "~components/svg/icon-calendar.svg";
 import getDateTomorrow from "~utils/getDateTomorrow";
 import ErrorMessage from "../ErrorMessage";
-import IconCalendar from "~components/svg/icon-calendar.svg";
-import clsx from "clsx";
+import styles from "./DatePicker.module.scss";
 
 const DatePicker = ({
   className,

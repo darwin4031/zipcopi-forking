@@ -1,5 +1,6 @@
 import MyProjects from "@/components/MyProjects/MyProjects";
-import ProfileCompletionChecklist from "@/components/ProfileCompletionChecklist/ProfileCompletionChecklist";
+import ProfileCompletionChecklist
+  from "@/components/ProfileCompletionChecklist/ProfileCompletionChecklist";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import clsx from "clsx";
 import useProjectsListData from "hooks/useProjectsListData";

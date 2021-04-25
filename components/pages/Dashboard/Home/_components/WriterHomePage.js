@@ -1,7 +1,7 @@
-import styles from "./WriterHomePage.module.scss";
+import clsx from "clsx";
 import Tips from "~components/elements/Tips";
 import InProgress from "~components/pages/Dashboard/Jobs/in_progress";
-import clsx from "clsx";
+import styles from "./WriterHomePage.module.scss";
 
 const WriterHomePage = () => {
   return (

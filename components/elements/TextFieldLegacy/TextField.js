@@ -1,10 +1,10 @@
+import clsx from "clsx";
 import { Children, useEffect, useRef, useState } from "react";
 import ErrorMessage from "~components/elements/ErrorMessage";
 import countWords from "./countWords";
 import countWordsLeft from "./countWordsLeft";
 import getUnique from "./getUnique";
 import styles from "./TextField.module.scss";
-import clsx from "clsx";
 
 const TextFieldLabel = ({ children, className, ...props }) => {
   return (

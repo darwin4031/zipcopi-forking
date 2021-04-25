@@ -1,10 +1,10 @@
+import clsx from "clsx";
 import After from "~components/svg/profile-completion-after.svg";
 import Before from "~components/svg/profile-completion-before.svg";
 import Center from "~components/svg/profile-completion-center.svg";
 import End from "~components/svg/profile-completion-end.svg";
 import Start from "~components/svg/profile-completion-start.svg";
 import styles from "./ProfileCompletionStepperItem.module.scss";
-import clsx from "clsx";
 
 const ProfileCompletionStepperItem = ({
   isCompleted,

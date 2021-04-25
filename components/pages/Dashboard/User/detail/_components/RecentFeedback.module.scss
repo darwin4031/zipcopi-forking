@@ -1,0 +1,44 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 16px;
+}
+
+.itemContainer {
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.itemTitle {
+  font-size: 14px;
+}
+
+.rateContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.itemDate {
+  font-size: 12px;
+  color: $color-blue;
+}

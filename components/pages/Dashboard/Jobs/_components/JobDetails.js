@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import IconCalendar from "~components/svg/icon-calendar.svg";
 import IconWordCount from "~components/svg/icon-word-count.svg";
 import styles from "./JobDetails.module.scss";

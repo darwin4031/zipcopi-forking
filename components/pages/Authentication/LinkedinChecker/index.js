@@ -2,9 +2,9 @@ import { CircularProgress } from "@material-ui/core";
 import axios from "axios";
 import { useRouter } from "next/router";
 import queryString from "query-string";
-import { useEffect, useContext } from "react";
-import styles from "./index.module.scss";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "~context/auth";
+import styles from "./index.module.scss";
 
 function Progress() {
   const router = useRouter();

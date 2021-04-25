@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import useSWR from "swr";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { fetcher, maybe } from "~utils/index";
 import styles from "./JobAmendHistories.module.scss";
 

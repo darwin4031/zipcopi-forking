@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
+import LinkedButton from "~components/elements/LinkedButton";
 import IllustrationNoJob from "~components/svg/illustration-no-job.svg";
 import { AuthContext } from "~context/auth";
-import LinkedButton from "~components/elements/LinkedButton";
 import styles from "./EmptyJobClient.module.scss";
-import Link from "next/link";
+
 const EmptyJob = () => {
   const { auth } = useContext(AuthContext);
 

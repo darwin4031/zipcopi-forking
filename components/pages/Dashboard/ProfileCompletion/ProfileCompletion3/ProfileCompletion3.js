@@ -1,16 +1,16 @@
-import { useContext, useState } from "react";
-import styles from "./ProfileCompletion3.module.scss";
-import profileStyles from "../ProfileCompletion.module.scss";
-import ProfileCompletionTitle from "../ProfileCompletionTitle";
-import ProfileCompletionAction from "../ProfileCompletionAction";
-import fieldStateRevalidate from "~utils/fieldStateRevalidate";
-import Radio from "~components/elements/Radio";
 import axios from "axios";
-import { AuthContext } from "~context/auth";
-import TextField from "~components/elements/TextFieldLegacy";
-import ErrorMessage from "~components/elements/ErrorMessage";
+import { useContext, useState } from "react";
 import Button, { ButtonIcon, ButtonText } from "~components/elements/Button";
+import ErrorMessage from "~components/elements/ErrorMessage";
+import Radio from "~components/elements/Radio";
+import TextField from "~components/elements/TextFieldLegacy";
 import IconChevronLeft from "~components/svg/icon-chevron-left.svg";
+import { AuthContext } from "~context/auth";
+import fieldStateRevalidate from "~utils/fieldStateRevalidate";
+import profileStyles from "../ProfileCompletion.module.scss";
+import ProfileCompletionAction from "../ProfileCompletionAction";
+import ProfileCompletionTitle from "../ProfileCompletionTitle";
+import styles from "./ProfileCompletion3.module.scss";
 
 const langOptions = [
   { value: 1, label: "Lang A" },
@@ -78,7 +78,6 @@ const ProfileCompletion3 = ({ onNextStep, onBackStep }) => {
     });
 
     setLanguagesError(newLanguagesError);
-    console.log(languages);
     //--prod console.log({ isAnyError, newLanguagesError });
 
     if (!isAnyError) {
@@ -91,7 +90,7 @@ const ProfileCompletion3 = ({ onNextStep, onBackStep }) => {
       });
 
       const promises = Promise.all(
-        data.map((x) => axios.post(`/writers/${auth.id}/languages/`, x))
+        data.map((x) => axios.post(`/writers/${auth?.id}/languages/`, x))
       );
 
       //--prod console.log({ data });

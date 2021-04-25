@@ -3,20 +3,21 @@ import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import Button from "~components/elements/Button";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
 import JobAmendHistories from "../_components/JobAmendHistories";
 import JobDescription from "../_components/JobDescription";
 import JobDetails from "../_components/JobDetails";
+import JobWriterWorkHistories from "../_components/JobWriterWorkHistories";
 import JobForm from "./_components/JobForm";
 import JobWithdraw from "./_components/JobWithdraw";
-import JobWriterWorkHistories from "../_components/JobWriterWorkHistories";
 
 const JobWriting = ({ data }) => {
   const router = useRouter();
   const [loadingMessage, setLoadingMessage] = useState(false);
   const { auth } = useContext(AuthContext);
-  const isWriter = auth.role === "writer";
+  const isWriter = auth?.role === "writer";
 
   const onChat = async () => {
     setLoadingMessage(true);

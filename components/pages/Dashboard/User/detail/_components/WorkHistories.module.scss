@@ -1,0 +1,26 @@
+@import "~styles/abstracts/_breakpoints.scss";
+@import "~styles/abstracts/_variables.scss";
+
+.addBtn.addBtn {
+    color: $color-primary;
+
+    &:not(:nth-child(1)) {
+        margin-left: 4px;
+    }
+
+    .addBtnIcon.addBtnIcon {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+.field:not(:nth-child(1)) {
+    margin-top: 16px;
+}
+
+.root {
+  display: flex;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $color-border-adminBox;
+  margin-top: 8px;
+}

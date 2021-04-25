@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import { mutate } from "swr";
 import Button from "~components/elements/Button";
-import RatingPopup from "./RatingPopup";
 import styles from "../../root.module.scss";
+import RatingPopup from "./RatingPopup";
 
 const WriterGiveRating = ({ jobId }) => {
   const [isOpen, setOpen] = useState(false);

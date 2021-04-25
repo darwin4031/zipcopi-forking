@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useContext } from "react";
 import useSWR from "swr";
 import EmptyJob from "~components/elements/EmptyJob";
@@ -6,7 +7,7 @@ import { AuthContext } from "~context/auth";
 import { fetcher, maybe } from "~utils/index";
 import JobCard from "../_components/JobCard";
 import styles from "./index.module.scss";
-import clsx from "clsx";
+
 const status = {
   client: ["place_order", "place_quote", "review", "revising", "writing", "pending_payment"],
   writer: ["review", "revising", "writing", "pending_payment"],
@@ -34,8 +35,8 @@ const Base = ({ data = [], withPadding }) => {
 
 const JobInProgress = ({ withPadding }) => {
   const { auth } = useContext(AuthContext);
-  const role = auth.role;
-  const userId = auth.id;
+  const role = auth?.role;
+  const userId = auth?.id;
   const { data: rawData } = useSWR(
     [`/${role}s/${userId}/jobs/`, status[role].join(", ")],
     (url, status) => fetcher(url, { params: { status__in: status } })

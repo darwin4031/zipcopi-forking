@@ -1,16 +1,15 @@
-import FilterTitle from "./FilterTitle";
 import FilterSelection from "./FilterSelection";
 import FilterSelectionItem from "./FilterSelectionItem";
-import enumProjectType from "./enumProjectType";
+import FilterTitle from "./FilterTitle";
 
-const FilterType = ({ onChange, value, isLoading }) => {
+const FilterType = ({ onChange, value, isLoading, jobTypeOptions }) => {
   return (
     <div>
       <FilterTitle>Type</FilterTitle>
       <FilterSelection name="dateRange" value={value} onChange={onChange} isLoading={isLoading}>
-        {Object.keys(enumProjectType).map((key) => (
-          <FilterSelectionItem key={key} stateKey={key}>
-            {enumProjectType[key]}
+        {jobTypeOptions.map((type) => (
+          <FilterSelectionItem key={type.id} stateKey={type.id}>
+            {type.name}
           </FilterSelectionItem>
         ))}
       </FilterSelection>

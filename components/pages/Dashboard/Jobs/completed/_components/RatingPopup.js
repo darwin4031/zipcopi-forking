@@ -1,14 +1,14 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import clsx from "clsx";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { Controller, useForm, useFormState, useWatch } from "react-hook-form";
+import * as yup from "yup";
 import Button from "~components/elements/Button";
 import ErrorMessage from "~components/elements/ErrorMessage";
 import Popup from "~components/elements/Popup";
 import TextField from "~components/elements/TextField";
 import IconStar from "~components/svg/icon-star.svg";
 import styles from "./RatingPopup.module.scss";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, useFormState, Controller, useWatch } from "react-hook-form";
 
 const schema = yup.object().shape({
   rate: yup.number().min(1).max(5).required().positive().integer(),

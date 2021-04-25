@@ -3,6 +3,11 @@ import axios from "axios";
 import { useState } from "react";
 import { Controller, useForm, useFormState, useWatch } from "react-hook-form";
 import * as yup from "yup";
+import Button from "~components/elements/Button";
+import { H4 } from "~components/elements/Heading";
+import LinkedButton from "~components/elements/LinkedButton";
+import Popup from "~components/elements/Popup";
+import TextField from "~components/elements/TextField";
 import {
   AuthUi,
   AuthUiForm,
@@ -10,11 +15,6 @@ import {
   AuthUiTitle,
 } from "~components/layouts/AuthContainer";
 import styles from "./index.module.scss";
-import Button from "~components/elements/Button";
-import { H4 } from "~components/elements/Heading";
-import LinkedButton from "~components/elements/LinkedButton";
-import Popup from "~components/elements/Popup";
-import TextField from "~components/elements/TextField";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

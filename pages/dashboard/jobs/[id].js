@@ -10,18 +10,18 @@ import JobDraft from "~components/pages/Dashboard/Jobs/draft";
 import JobPendingPayment from "~components/pages/Dashboard/Jobs/pending_payment";
 import JobPlaceOrder from "~components/pages/Dashboard/Jobs/place_order";
 import JobPlaceQuote from "~components/pages/Dashboard/Jobs/place_quote";
+import JobReview from "~components/pages/Dashboard/Jobs/review";
 import JobRevising from "~components/pages/Dashboard/Jobs/revising";
 import JobWriting from "~components/pages/Dashboard/Jobs/writing";
 import { AuthContext } from "~context/auth";
 import { fetcher } from "~utils/index";
-import JobReview from "~components/pages/Dashboard/Jobs/review";
 
 const JobRoleChecker = (props) => {
   const router = useRouter();
   const { data, children } = props;
   const { auth } = useContext(AuthContext);
-  const role = auth.role;
-  const userId = auth.id;
+  const role = auth?.role;
+  const userId = auth?.id;
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {

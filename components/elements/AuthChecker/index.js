@@ -13,9 +13,9 @@ const AuthChecker = ({ children, isPublic, role }) => {
       if (auth === undefined) {
         router.push("/signin");
       } else if (role !== undefined) {
-        if (role === "client" && auth.role !== "client") {
+        if (role === "client" && auth?.role !== "client") {
           router.push("/dashboard");
-        } else if (role === "writer" && auth.role !== "writer") {
+        } else if (role === "writer" && auth?.role !== "writer") {
           router.push("/dashboard");
         } else {
           setChecking(false);

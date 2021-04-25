@@ -21,7 +21,7 @@ function OrderHistoryTable({ orders }) {
         <tbody>
           {orders.map((order) => (
             <Fragment key={`table-row${order.id}`}>
-              <tr className={styles.spacerRow}></tr>
+              <tr className={styles.spacerRow} />
               <tr className={styles.bodyRows}>
                 <td align="left">
                   <div className={styles.buyerCell}>
@@ -30,12 +30,16 @@ function OrderHistoryTable({ orders }) {
                   </div>
                 </td>
                 {/* <td align="left">{order.deliveryAt}</td> */}
-                <td align="center">${order.total}</td>
+                <td align="center">£ {order.total}</td>
                 <td align="center">
-                  <div className={styles.ratingCell}>
-                    <IconRatingStar className={styles.ratingIcon} />
-                    {order.job_rates[0]?.rate}
-                  </div>
+                  {order.job_rates[0]?.rate ? (
+                    <div className={styles.ratingCell}>
+                      <IconRatingStar className={styles.ratingIcon} />
+                      {order.job_rates[0]?.rate}
+                    </div>
+                  ) : (
+                    "-"
+                  )}
                 </td>
                 <td align="center">
                   <Button variant="success">{status[order.status].display}</Button>

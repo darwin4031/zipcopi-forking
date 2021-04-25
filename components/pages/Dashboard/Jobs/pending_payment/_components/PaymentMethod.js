@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Checkbox from "~components/elements/Checkbox";
 import styles from "./PaymentMethod.module.scss";
-import Stripe from "./Stripe";
 import Paypal from "./Paypal";
+import Stripe from "./Stripe";
 
 const PaymentMethod = ({ payment }) => {
   const [method, setMethod] = useState("stripe");

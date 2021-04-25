@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import { AuthContext } from "~context/auth";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles
+  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import { AuthContext } from "~context/auth";
 import JobDetails from "../_components/JobDetails";
 import JobWriterWorkHistories from "../_components/JobWriterWorkHistories";
 import WriterWork from "../_components/WriterWork";
 import ClientGiveRating from "./_components/ClientGiveRating";
-import WriterGiveRating from "./_components/WriterGiveRating";
 import Rating from "./_components/Rating";
+import WriterGiveRating from "./_components/WriterGiveRating";
 
 const JobCompleted = ({ data }) => {
   const { auth } = useContext(AuthContext);
@@ -15,7 +16,7 @@ const JobCompleted = ({ data }) => {
   const writerFilter = data.job_rates.filter((rate) => rate.user === data.writer);
 
   let rating, giveRating;
-  if (auth.role === "client") {
+  if (auth?.role === "client") {
     if (writerFilter.length === 0) {
       giveRating = <ClientGiveRating jobId={data.id} />;
     }
