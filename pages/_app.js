@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
     (error) => {
       if (error.response.status === 401 && localStorage.getItem("token")) {
         localStorage.removeItem("token");
-        router.push("/dashboard/sign-in");
+        router.push("/sign-in");
       } else {
         throw error;
       }

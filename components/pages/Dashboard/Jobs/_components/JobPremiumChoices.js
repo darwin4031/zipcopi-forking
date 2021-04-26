@@ -100,7 +100,7 @@ const JobPremiumChoices = ({ className, label, placeholder, value, error, onChan
         </div>
         <div className={styles.popupFlex}>
           <Item
-            price="£9,99"
+            price="£0.01 / Word"
             label="Basic"
             onSelect={() => {
               onChange("basic");
@@ -111,7 +111,7 @@ const JobPremiumChoices = ({ className, label, placeholder, value, error, onChan
             <ListItemUncheck>No amends</ListItemUncheck>
           </Item>
           <Item
-            price="£19,99"
+            price="£0.02 / Word"
             label="Premium"
             onSelect={() => {
               onChange("premium");
@@ -122,7 +122,7 @@ const JobPremiumChoices = ({ className, label, placeholder, value, error, onChan
             <ListItemCheck>3 Amends</ListItemCheck>
           </Item>
           <Item
-            price="£39,99"
+            price="Call Us"
             label="Bespoke"
             onSelect={() => {
               onChange("bespoke");

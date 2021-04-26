@@ -26,7 +26,6 @@ const schema = yup.object().shape({
 
 const Base = (props) => {
   const { data: oldData, jobTypeOptions, subjectOptions } = props;
-  const router = useRouter();
   const [files, setFiles] = useState(oldData?.files || []);
   const [isOpenConfirmation, setOpenConfirmation] = useState(false);
   const { control, handleSubmit, setError } = useForm({
@@ -92,6 +91,9 @@ const Base = (props) => {
           setFiles={setFiles}
           jobTypeOptions={jobTypeOptions}
           subjectOptions={subjectOptions}
+          oldSubjects={[
+            { value: oldData.subject_display.id, label: oldData.subject_display.name },
+          ]}
         />
 
         <div className={styles.actions}>

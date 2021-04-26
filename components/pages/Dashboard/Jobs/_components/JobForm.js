@@ -1,4 +1,7 @@
+import axios from "axios";
+import { useState } from "react";
 import { Controller } from "react-hook-form";
+import SelectAsyncBox from "~components/elements/SelectAsyncBox";
 import SelectBox from "~components/elements/SelectBox";
 import TextField from "~components/elements/TextField";
 import styles from "./JobForm.module.scss";
@@ -6,7 +9,29 @@ import JobPremiumChoices from "./JobPremiumChoices";
 import UploadFile from "./UploadFile";
 
 const OrderForm = (props) => {
-  const { control, files, setFiles, jobTypeOptions = [], subjectOptions = [] } = props;
+  const { control, files, setFiles, jobTypeOptions = [], oldSubjects = [] } = props;
+  const [subjectsTemp, setSubjectsTemp] = useState(oldSubjects);
+  const getSubjects = async (inputValue) => {
+    const params = {};
+    if (inputValue) {
+      params.search = inputValue;
+    }
+    const res = await axios.get("/jobs/subjects/", { params });
+    const subjects = res.data.results;
+    const normalizeSubjects = subjects.map((subject) => ({
+      value: subject.id,
+      label: subject.name,
+    }));
+    setSubjectsTemp(subjects);
+    return normalizeSubjects;
+  };
+
+  const loadOptions = (inputValue) =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(getSubjects(inputValue));
+      }, 300);
+    });
 
   return (
     <>
@@ -35,13 +60,17 @@ const OrderForm = (props) => {
             control={control}
             name="subject"
             render={({ field: { onChange, value, name, ref }, fieldState: { error } }) => (
-              <SelectBox
+              <SelectAsyncBox
                 className={styles.field}
                 label="Subject"
                 placeholder="Select subject"
-                value={subjectOptions.filter((x) => x.value === value)[0]}
-                options={subjectOptions}
-                onChange={(val) => onChange(val.value)}
+                cacheOptions
+                defaultOptions={oldSubjects}
+                value={subjectsTemp.filter((x) => x.value === value)[0]}
+                loadOptions={loadOptions}
+                onChange={(val) => {
+                  onChange(val.value);
+                }}
                 error={error}
               />
             )}
