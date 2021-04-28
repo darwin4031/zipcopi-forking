@@ -58,7 +58,15 @@ const premiumJobEnum = {
   premium: "Premium",
   bespoke: "Bespoke",
 };
-const JobPremiumChoices = ({ className, label, placeholder, value, error, onChange }) => {
+const JobPremiumChoices = ({
+  className,
+  label,
+  placeholder,
+  value,
+  error,
+  onChange,
+  readOnly,
+}) => {
   const [isSelectingPremium, setSelectingPremium] = useState(false);
 
   return (
@@ -67,7 +75,11 @@ const JobPremiumChoices = ({ className, label, placeholder, value, error, onChan
 
       <button
         className={clsx(styles.button, "reset-button")}
-        onClick={() => setSelectingPremium(true)}
+        onClick={() => {
+          if (!readOnly) {
+            setSelectingPremium(true);
+          }
+        }}
       >
         <div className={styles.input}>
           {value ? (

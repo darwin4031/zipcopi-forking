@@ -4,9 +4,9 @@ import { useContext, useState } from "react";
 import { mutate } from "swr";
 import Button from "~components/elements/Button";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles
-  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
+import EditJob from "../_components/EditJob";
 import JobAmendHistories from "../_components/JobAmendHistories";
 import JobDetails from "../_components/JobDetails";
 import JobWriterWorkHistories from "../_components/JobWriterWorkHistories";
@@ -60,6 +60,7 @@ const JobRevising = ({ data }) => {
         ) : (
           <JobAmend amend={data.active_amend} jobId={data.id} />
         )}
+        {auth?.role === "client" && <EditJob data={data} />}
         <JobDetails job={data} withBrief />
         <JobAmendHistories jobId={data.id} />
       </div>

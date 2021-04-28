@@ -5,9 +5,9 @@ import { useContext, useState } from "react";
 import { mutate } from "swr";
 import Button from "~components/elements/Button";
 import JobDetailContainer from "~components/layouts/JobDetailContainer";
-import jobDetailStyles
-  from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
+import jobDetailStyles from "~components/layouts/JobDetailContainer/JobDetailContainer.module.scss";
 import { AuthContext } from "~context/auth";
+import EditJob from "../_components/EditJob";
 import JobDescription from "../_components/JobDescription";
 import JobDetails from "../_components/JobDetails";
 
@@ -63,6 +63,7 @@ const JobPlaceOrder = ({ data }) => {
         ) : (
           <div className={jobDetailStyles.status}>Waiting for the writer</div>
         )}
+        {auth?.role === "client" && <EditJob data={data} />}
         <JobDetails job={data} />
       </div>
     </JobDetailContainer>

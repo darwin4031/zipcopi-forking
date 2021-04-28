@@ -8,6 +8,7 @@ import * as yup from "yup";
 import Button, { ButtonText } from "~components/elements/Button";
 import ConfirmationPopup from "~components/elements/ConfirmationPopup";
 import LoadingWrapper from "~components/elements/LoadingWrapper";
+import useOpen from "~hooks/useOpen";
 import { fetcher, maybe, setErrors } from "~utils/index";
 import JobForm from "../_components/JobForm";
 import styles from "./index.module.scss";
@@ -26,6 +27,9 @@ const schema = yup.object().shape({
 
 const Base = (props) => {
   const { data: oldData, jobTypeOptions, subjectOptions } = props;
+
+  const router = useRouter();
+  const { isOpen: isOpenError, onOpen: onOpenError, onClose: onCloseError } = useOpen();
   const [files, setFiles] = useState(oldData?.files || []);
   const [isOpenConfirmation, setOpenConfirmation] = useState(false);
   const { control, handleSubmit, setError } = useForm({
@@ -43,6 +47,7 @@ const Base = (props) => {
     resolver: yupResolver(schema),
   });
   const { isSubmitting, errors } = useFormState({ control });
+
   const onSubmit = async (data, isDraft) => {
     const keywords = data.keywords.split(",").map((keyword) => keyword.trim());
     const formData = new FormData();
@@ -81,6 +86,15 @@ const Base = (props) => {
     setOpenConfirmation(true);
   };
 
+  const onDeleteDraft = async () => {
+    try {
+      await axios.delete(`/jobs/${oldData.id}`);
+      router.push("/dashboard/jobs/in-progress");
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.box}>
@@ -114,6 +128,14 @@ const Base = (props) => {
           >
             <ButtonText>Save for later</ButtonText>
           </Button>
+          <Button
+            className={styles.laterBtn}
+            variant="error"
+            onClick={onOpenError}
+            isLoading={isSubmitting}
+          >
+            <ButtonText>Delete Draft</ButtonText>
+          </Button>
         </div>
         <ConfirmationPopup
           title="Are you sure everything is correct?"
@@ -126,6 +148,15 @@ const Base = (props) => {
             handleSubmit((data) => onSubmit(data, false))();
             setOpenConfirmation(false);
           }}
+        />
+        <ConfirmationPopup
+          title="Are you sure you want delete this draft?"
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus neque turpis, dapibus"
+          cancelText="CANCEL"
+          submitText="DELETE"
+          isOpen={isOpenError}
+          onCancel={onCloseError}
+          onSubmit={onDeleteDraft}
         />
       </div>
     </div>

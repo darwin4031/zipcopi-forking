@@ -30,7 +30,7 @@ const JobRoleChecker = (props) => {
         router.push("/404");
       }
     } else if (role === "writer") {
-      if (["draft", "place_quote"].includes(data.status)) {
+      if (["draft", "place_quote", "pending_payment"].includes(data.status)) {
         router.push("/404");
       }
       if (data.status !== "place_order" && data.writer !== userId) {
@@ -47,12 +47,12 @@ const JobChooser = ({ data }) => {
   let comp;
   if (data.status === "draft") {
     comp = <JobDraft data={data} />;
-  } else if (data.status === "place_order") {
-    comp = <JobPlaceOrder data={data} />;
   } else if (data.status === "place_quote") {
     comp = <JobPlaceQuote data={data} />;
   } else if (data.status === "pending_payment") {
     comp = <JobPendingPayment data={data} />;
+  } else if (data.status === "place_order") {
+    comp = <JobPlaceOrder data={data} />;
   } else if (data.status === "writing") {
     comp = <JobWriting data={data} />;
   } else if (data.status === "review") {

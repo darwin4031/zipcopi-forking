@@ -2,11 +2,21 @@
 @import "~styles/abstracts/_variables.scss";
 
 .totalCardContainer {
-    width: 280px;
-    min-width: 280px;
-    background-color: $color-primary;
-    border-radius: 8px;
-    padding: 36px 22px 16px 22px;
+  width: 280px;
+  min-width: 280px;
+  background-color: $color-primary;
+  border-radius: 8px;
+  padding: 36px 22px 16px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.laterBtn {
+background: transparent;
+}
+
+.wrapper {
+  flex-grow: 1;
 }
 
 .cardItem {

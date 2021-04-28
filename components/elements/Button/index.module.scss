@@ -42,6 +42,17 @@
     }
   }
 
+  &.variant-error {
+    font-weight: 600;
+    color: $color-error;
+    background-color: $color-light;
+
+    &:hover,
+    &:focus {
+      background-color: mix($color-error, $color-light, 20);
+    }
+  }
+
   &.variant-white {
     border: 1px solid $color-light;
     color: $color-primary;

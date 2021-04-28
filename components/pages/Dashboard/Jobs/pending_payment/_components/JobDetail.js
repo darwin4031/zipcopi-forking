@@ -8,24 +8,9 @@ const JobDetail = ({ data }) => {
     word_count,
     subject_display: { name: subjectName },
     type_display: { name: typeName },
-    writer_display: {
-      first_name,
-      last_name,
-      detail: { avatar },
-    },
   } = data;
   return (
     <div className={styles.stepContainer}>
-      <p className={styles.label}>Writers</p>
-      <div className={styles.writersBlock}>
-        <AvatarCard image={avatar ? avatar : "/img/avatar.png"} />
-        <div className={styles.writersInfoBlock}>
-          <p className={styles.avatarName}>
-            {first_name} {last_name}
-          </p>
-          <p className={styles.copyText}>Website copy</p>
-        </div>
-      </div>
       <div className={styles.infoBlock}>
         <div className={styles.infoTitleBlock}>
           <p className={styles.subTitle}>{subjectName}</p>

@@ -9,7 +9,7 @@ import JobPremiumChoices from "./JobPremiumChoices";
 import UploadFile from "./UploadFile";
 
 const OrderForm = (props) => {
-  const { control, files, setFiles, jobTypeOptions = [], oldSubjects = [] } = props;
+  const { control, files, setFiles, jobTypeOptions = [], oldSubjects = [], isEdit } = props;
   const [subjectsTemp, setSubjectsTemp] = useState(oldSubjects);
   const getSubjects = async (inputValue) => {
     const params = {};
@@ -119,6 +119,7 @@ const OrderForm = (props) => {
                 value={value}
                 onChange={(val) => onChange(val)}
                 error={error}
+                readOnly={isEdit}
               />
             )}
           />
@@ -133,6 +134,7 @@ const OrderForm = (props) => {
                 onChange={(val) => onChange(val)}
                 value={value}
                 error={error}
+                readOnly={isEdit}
               />
             )}
           />
@@ -163,6 +165,7 @@ const OrderForm = (props) => {
                 value={value}
                 onChange={(val) => onChange(val)}
                 error={error}
+                readOnly={isEdit}
               />
             )}
           />
